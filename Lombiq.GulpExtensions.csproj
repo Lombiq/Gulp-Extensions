@@ -9,6 +9,11 @@
     <None Remove="node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove=".git" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
