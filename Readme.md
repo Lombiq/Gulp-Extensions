@@ -8,6 +8,8 @@ Various JavaScript functions and Gulp tasks that can be handy when developing Gu
 
 When adding this project to the solution it will initialize a _node_modules_ folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other _package.json_ files. This way it makes it possible to keep the _package.json_ files light (e.g. adding _gulp_ node module won't be necessary).
 
+Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
+
 
 ## Includes:
 
