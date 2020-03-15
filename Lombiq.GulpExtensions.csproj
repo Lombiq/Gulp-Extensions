@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefaultItemExcludes>$(DefaultItemExcludes);node_modules\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".git" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
+  </PropertyGroup>
+  
+  <Target Name="InitCommonNodeModules" BeforeTargets="ResolveReferences" Inputs="package.json" Outputs="$(InitCommonNodeModulesStampFile)">
+    <Exec Command="npm install" />
+    <Exec Command="move node_modules ../.." />
+    <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
+  </Target>
+
+</Project>
