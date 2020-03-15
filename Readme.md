@@ -52,7 +52,9 @@ const assets = [
 gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
 
-Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**.
-Feel free to send pull requests too, no matter which source repository you choose for this purpose.
 
-This project is developed by [Lombiq Technologies Ltd](http://lombiq.com/). Commercial-grade support is available through Lombiq.
+## Contributing
+
+Bug reports, feature requests, comments and code contributions are warmly welcome, **please do so via GitHub**.
+
+This project is developed by [Lombiq Technologies Ltd](https://lombiq.com/). Commercial-grade support is available through Lombiq.
