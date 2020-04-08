@@ -30,10 +30,8 @@ function compileScss(source, destination, compatibleBrowsers) {
         .pipe(gulp.dest(destination));
 };
 
-function minifyCss(source, destination) {
-    destination = destination ? destination : source;
-
-    return gulp.src([source + '**.css', '!' + source + '**/*.min.css'])
+function minifyCss(destination) {
+    return gulp.src([destination + '**.css', '!' + destination + '**/*.min.css'])
         .pipe(cache('css'))
         .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
@@ -46,7 +44,7 @@ function scssCompilationPipeline(source, destination, compatibleBrowsers) {
 
     return gulp.series(
         async () => await new Promise((resolve) => compileScss(source, destination, compatibleBrowsers).on('end', resolve)),
-        async () => await new Promise((resolve) => minifyCss(source, destination).on('end', resolve)));
+        async () => await new Promise((resolve) => minifyCss(destination).on('end', resolve)));
 };
 
 module.exports = module.exports.scssCompilationPipeline = scssCompilationPipeline;
