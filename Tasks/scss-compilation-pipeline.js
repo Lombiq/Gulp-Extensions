@@ -10,12 +10,13 @@ const cleanCss = require('gulp-clean-css');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
+const del = require('del');
 
 sass.compiler = nodeSass;
 
 const defaultCompatibleBrowsers = ['last 1 Chrome version', 'last 1 Edge version', 'last 1 Firefox version', 'last 1 IE version', 'last 1 iOS version'];
 
-function compileScss(source, destination, compatibleBrowsers) {
+function compile(source, destination, compatibleBrowsers) {
     destination = destination ? destination : source;
     compatibleBrowsers = compatibleBrowsers ? compatibleBrowsers : defaultCompatibleBrowsers;
 
@@ -29,7 +30,7 @@ function compileScss(source, destination, compatibleBrowsers) {
         .pipe(gulp.dest(destination));
 };
 
-function minifyCss(destination) {
+function minify(destination) {
     return gulp.src([destination + '**/*.css', '!' + destination + '**/*.min.css'])
         .pipe(cache('css'))
         .pipe(cleanCss({ compatibility: 'ie8' }))
@@ -37,15 +38,17 @@ function minifyCss(destination) {
         .pipe(gulp.dest(destination));
 };
 
-function scssCompilationPipeline(source, destination, compatibleBrowsers) {
+function clean(destination) {
+    return async () => await del([destination + '**/*.css', destination + '**/*.css.map']);
+}
+
+function build(source, destination, compatibleBrowsers) {
     destination = destination ? destination : source;
     compatibleBrowsers = compatibleBrowsers ? compatibleBrowsers : defaultCompatibleBrowsers;
 
     return gulp.series(
-        async () => await new Promise((resolve) => compileScss(source, destination, compatibleBrowsers).on('end', resolve)),
-        async () => await new Promise((resolve) => minifyCss(destination).on('end', resolve)));
+        async () => await new Promise((resolve) => compile(source, destination, compatibleBrowsers).on('end', resolve)),
+        async () => await new Promise((resolve) => minify(destination).on('end', resolve)));
 };
 
-module.exports = module.exports.scssCompilationPipeline = scssCompilationPipeline;
-module.exports.compileScss = compileScss;
-module.exports.minifyCss = minifyCss;
+module.exports = { build, compile, minify, clean };
