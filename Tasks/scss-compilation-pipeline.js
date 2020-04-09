@@ -19,7 +19,6 @@ function compileScss(source, destination, compatibleBrowsers) {
     destination = destination ? destination : source;
     compatibleBrowsers = compatibleBrowsers ? compatibleBrowsers : defaultCompatibleBrowsers;
 
-
     return gulp.src(source + '**/*.scss')
         .pipe(cache('scss'))
         .pipe(plumber())
@@ -31,7 +30,7 @@ function compileScss(source, destination, compatibleBrowsers) {
 };
 
 function minifyCss(destination) {
-    return gulp.src([destination + '**.css', '!' + destination + '**/*.min.css'])
+    return gulp.src([destination + '**/*.css', '!' + destination + '**/*.min.css'])
         .pipe(cache('css'))
         .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
