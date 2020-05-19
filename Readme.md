@@ -22,7 +22,7 @@ Import the _Tasks/build-scss.js_ file in your Gulpfile then create a Gulp task t
 Usage:
 
 ```
-const buildScss = require('path/to/Lombiq.GulpExtensions/Tasks/build-scss');
+const buildScss = require('path/to/Lombiq.Gulp.Extensions/Tasks/build-scss');
 
 gulp.task('build:styles', () => buildScss('./Assets/scss/**/*.scss', './wwwroot/'));
 ```
@@ -38,7 +38,7 @@ Input parameter is an array of objects where it is possible to specify the sourc
 Usage:
 
 ```
-const copyAssets = require('path/to/Lombiq.GulpExtensions/Tasks/copy-assets');
+const copyAssets = require('path/to/Lombiq.Gulp.Extensions/Tasks/copy-assets');
 
 const assets = [        
     {
