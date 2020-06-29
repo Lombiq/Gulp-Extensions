@@ -5,6 +5,10 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
