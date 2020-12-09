@@ -11,12 +11,17 @@
 
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
+    <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
   </PropertyGroup>
   
   <Target Name="InitCommonNodeModules" BeforeTargets="ResolveReferences" Inputs="package.json" Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
     <Exec Command="move node_modules ../.." Condition="Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
+  </Target>
+
+  <Target Name="CopyEslintConfigFile" BeforeTargets="InitCommonNodeModules" Condition="!Exists($(ESLintConfigFileTargetPath))">
+    <Exec Command="copy .eslintrc ../.." />
   </Target>
 
 </Project>
