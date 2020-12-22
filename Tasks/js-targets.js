@@ -1,19 +1,8 @@
 'use strict';
 
 const gulp = require('gulp');
-const cache = require('gulp-cached');
-const plumber = require('gulp-plumber');
-const sass = require('gulp-sass');
-const nodeSass = require('node-sass');
-const rename = require('gulp-rename');
-const cleanCss = require('gulp-clean-css');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('autoprefixer');
 const del = require('del');
 const eslint = require('gulp-eslint');
-
-sass.compiler = nodeSass;
 
 function compile(source, destination) {
     destination = destination ? destination : source;
