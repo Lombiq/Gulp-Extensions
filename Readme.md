@@ -1,8 +1,8 @@
-# Gulp Extensions
+# Lombiq Gulp Extensions
 
 
 
-## Project Description
+## About
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
 
@@ -22,7 +22,7 @@ Import the _Tasks/build-scss.js_ file in your Gulpfile then create a Gulp task t
 Usage:
 
 ```
-const buildScss = require('path/to/Lombiq.GulpExtensions/Tasks/build-scss');
+const buildScss = require('path/to/Lombiq.Gulp.Extensions/Tasks/build-scss');
 
 gulp.task('build:styles', () => buildScss('./Assets/scss/**/*.scss', './wwwroot/'));
 ```
@@ -38,7 +38,7 @@ Input parameter is an array of objects where it is possible to specify the sourc
 Usage:
 
 ```
-const copyAssets = require('path/to/Lombiq.GulpExtensions/Tasks/copy-assets');
+const copyAssets = require('path/to/Lombiq.Gulp.Extensions/Tasks/copy-assets');
 
 const assets = [        
     {
@@ -55,8 +55,8 @@ gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
 
 
-## Contributing
+## Contributing and support
 
-Bug reports, feature requests, comments and code contributions are warmly welcome, **please do so via GitHub**.
+Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
-This project is developed by [Lombiq Technologies Ltd](https://lombiq.com/). Commercial-grade support is available through Lombiq.
+This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
