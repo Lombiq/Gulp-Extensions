@@ -7,11 +7,11 @@
 
   <ItemGroup>
     <None Remove="node_modules\**" />
-    <FilesToMove Include="$(ProjectDir)\node_modules\**"/>
+    <FilesToMove Include="$(ProjectDir)node_modules\**"/>
   </ItemGroup>
 
   <PropertyGroup>
-    <InitCommonNodeModulesStampFile>$(SolutionDir)\node_modules\.install-stamp</InitCommonNodeModulesStampFile>
+    <InitCommonNodeModulesStampFile>$(SolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
 
   <!--
@@ -27,7 +27,7 @@
   Inputs="package.json"
   Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
-    <Move SourceFiles="@(FilesToMove)" DestinationFolder="$(SolutionDir)\node_modules\%(RecursiveDir)" />
+    <Move SourceFiles="@(FilesToMove)" DestinationFolder="$(SolutionDir)node_modules\%(RecursiveDir)" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
