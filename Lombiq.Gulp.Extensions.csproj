@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Remove="node_modules\**" />
-    <FilesToMove Include="$(ProjectDir)node_modules\**"/>
   </ItemGroup>
 
   <PropertyGroup>
@@ -27,7 +26,8 @@
   Inputs="package.json"
   Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
-    <Move SourceFiles="@(FilesToMove)" DestinationFolder="$(SolutionDir)node_modules\%(RecursiveDir)" />
+    <Exec Command="move node_modules $(SolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
+    <Exec Command="mv node_modules $(SolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
