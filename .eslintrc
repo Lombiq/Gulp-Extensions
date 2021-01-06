@@ -20,66 +20,11 @@
         "worker": true
     },
     "rules": {
-        // The below are some, but not all, of the rules from eslint:recommended https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js (all errors set to warning)
-        "constructor-super": 1,
-        "for-direction": 1,
-        "getter-return": 1,
-        "no-async-promise-executor": 1,
-        "no-case-declarations": 1,
-        "no-class-assign": 1,
-        "no-compare-neg-zero": 1,
-        "no-cond-assign": 1,
-        "no-const-assign": 1,
-        "no-constant-condition": 1,
-        "no-control-regex": 1,
-        "no-debugger": 1,
-        "no-delete-var": 1,
-        "no-dupe-args": 1,
-        "no-dupe-class-members": 1,
-        "no-dupe-keys": 1,
-        "no-duplicate-case": 1,
-        "no-empty": 1,
-        "no-empty-character-class": 1,
-        "no-empty-pattern": 1,
-        "no-ex-assign": 1,
-        "no-extra-boolean-cast": 1,
-        "no-fallthrough": 1,
-        "no-func-assign": 1,
-        "no-global-assign": 1,
-        "no-inner-declarations": 1,
-        "no-invalid-regexp": 1,
-        "no-misleading-character-class": 1,
-        "no-mixed-spaces-and-tabs": 1,
-        "no-new-symbol": 1,
-        "no-obj-calls": 1,
-        "no-octal": 1,
-        "no-prototype-builtins": 1,
-        "no-redeclare": 1,
-        "no-regex-spaces": 1,
-        "no-self-assign": 1,
-        "no-shadow-restricted-names": 1,
-        "no-sparse-arrays": 1,
-        "no-this-before-super": 1,
-        "no-unexpected-multiline": 1,
-        "no-unreachable": 1,
-        "no-unsafe-finally": 1,
-        "no-unsafe-negation": 1,
-        "no-unused-labels": 1,
-        "no-useless-catch": 1,
-        "no-useless-escape": 1,
-        "no-with": 1,
-        "require-atomic-updates": 1,
-        "require-yield": 1,
-        "use-isnan": 1,
-        "valid-typeof": 1,
+        // Eslint:recommended https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js (all errors set to warning)
         "quotes": [
             1,
             "single",
             { "avoidEscape": true }
-        ],
-
-        // Other rules
-        "default-param-last": 1,
-        "eqeqeq": 1
+        ]
     }
 }
