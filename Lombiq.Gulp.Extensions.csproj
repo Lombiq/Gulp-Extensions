@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <!-- The project should be possible to build alone, without a solution too. Also, it shouldn't override
+    SolutionDir for other targets. -->
+    <SafeSolutionDir>$(SolutionDir)</SafeSolutionDir>
+    <SafeSolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SafeSolutionDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +14,7 @@
   </ItemGroup>
   
   <PropertyGroup>
-    <InitCommonNodeModulesStampFile>$(SolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
+    <InitCommonNodeModulesStampFile>$(SafeSolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
 
   <!--
@@ -29,8 +32,8 @@
     <Exec Command="npm install" />
     <!-- Using move command as the Move task did not complete correctly during testing in a Linux-based build pipeline.
     -->
-    <Exec Command="move node_modules $(SolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
-    <Exec Command="mv node_modules $(SolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
+    <Exec Command="move node_modules $(SafeSolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
+    <Exec Command="mv node_modules $(SafeSolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
