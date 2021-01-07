@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
+    <InitCommonNodeModulesStampFile>$(SolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
 
   <!--
@@ -26,7 +26,9 @@
   Inputs="package.json"
   Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
-    <Exec Command="move node_modules ../.." Condition="Exists('node_modules')" />
+    <!-- Using move command as move task did not complete correctly during testing in linux-based build pipeline. -->
+    <Exec Command="move node_modules $(SolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
+    <Exec Command="mv node_modules $(SolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
