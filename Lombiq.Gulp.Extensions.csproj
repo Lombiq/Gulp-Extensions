@@ -3,12 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="node_modules\**" />
   </ItemGroup>
-
+  
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>$(SolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
   </PropertyGroup>
