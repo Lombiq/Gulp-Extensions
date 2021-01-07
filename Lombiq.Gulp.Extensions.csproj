@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -27,7 +27,8 @@
     Inputs="package.json"
     Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
-    <!-- Using move command as move task did not complete correctly during testing in linux-based build pipeline. -->
+    <!-- Using move command as the Move task did not complete correctly during testing in a Linux-based build pipeline.
+    -->
     <Exec Command="move node_modules $(SolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
     <Exec Command="mv node_modules $(SolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
