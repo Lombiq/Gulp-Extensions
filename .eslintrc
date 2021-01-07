@@ -47,7 +47,7 @@
         ],
 
         // require return statements to either always or never specify values
-        "consistent-return": "error",
+        "consistent-return": "warn",
 
         // specify curly brace conventions for all control statements
         "curly": [ "error", "multi-line" ], // multiline
@@ -80,7 +80,7 @@
         // require the use of === and !==
         // https://eslint.org/docs/rules/eqeqeq
         "eqeqeq": [
-            "error",
+            "warn",
             "always",
             { null: "ignore" }
         ],
@@ -360,7 +360,7 @@
         "no-self-compare": "error",
 
         // disallow use of comma operator
-        "no-sequences": "error",
+        "no-sequences": "warn",
 
         // restrict what can be thrown as an exception
         "no-throw-literal": "error",
@@ -445,7 +445,7 @@
         "require-unicode-regexp": "off",
 
         // requires to declare all vars on top of their containing scope
-        "vars-on-top": "error",
+        "vars-on-top": "warn",
 
         // require immediate function invocation to be wrapped in parentheses
         // https://eslint.org/docs/rules/wrap-iife.html
@@ -510,7 +510,7 @@
         "no-duplicate-case": "error",
 
         // disallow empty statements
-        "no-empty": "error",
+        "no-empty": "warn",
 
         // disallow the use of empty character classes in regular expressions
         "no-empty-character-class": "error",
@@ -531,7 +531,6 @@
                 "conditionalAssign": true,
                 "nestedBinaryExpressions": false,
                 "returnAssign": false,
-                "ignoreJSX": "all", // delegate to eslint-plugin-react
                 "enforceForArrowConditionals": false
             }
         ],
@@ -664,7 +663,7 @@
 
         // require parens in arrow function arguments
         // https://eslint.org/docs/rules/arrow-parens
-        "arrow-parens": [ "error", "always" ],
+        "arrow-parens": [ "warn", "always" ],
 
         // require space before/after arrow function's arrow
         // https://eslint.org/docs/rules/arrow-spacing
@@ -765,7 +764,7 @@
         ],
 
         // require let or const instead of var
-        "no-var": "error",
+        "no-var": "warn",
 
         // require method and property shorthand syntax for object literals
         // https://eslint.org/docs/rules/object-shorthand
@@ -780,7 +779,7 @@
 
         // suggest using arrow functions as callbacks
         "prefer-arrow-callback": [
-            "error",
+            "warn",
             {
                 "allowNamedFunctions": false,
                 "allowUnboundThis": true
@@ -799,7 +798,7 @@
         // Prefer destructuring from arrays and objects
         // https://eslint.org/docs/rules/prefer-destructuring
         "prefer-destructuring": [
-            "error",
+            "warn",
             {
                 "VariableDeclarator": {
                     "array": false,
@@ -825,7 +824,7 @@
 
         // use rest parameters instead of arguments
         // https://eslint.org/docs/rules/prefer-rest-params
-        "prefer-rest-params": "error",
+        "prefer-rest-params": "warn",
 
         // suggest using the spread operator instead of .apply()
         // https://eslint.org/docs/rules/prefer-spread
@@ -833,7 +832,7 @@
 
         // suggest using template literals instead of string concatenation
         // https://eslint.org/docs/rules/prefer-template
-        "prefer-template": "error",
+        "prefer-template": "warn",
 
         // disallow generator functions that do not have yield
         // https://eslint.org/docs/rules/require-yield
@@ -891,7 +890,7 @@
 
         // enforce one true brace style
         "brace-style": [
-            "error",
+            "warn",
             "1tbs",
             { "allowSingleLine": true }
         ],
@@ -926,7 +925,7 @@
 
         // require trailing commas in multiline object literals
         "comma-dangle": [
-            "error",
+            "warn",
             {
                 "arrays": "always-multiline",
                 "objects": "always-multiline",
@@ -1006,7 +1005,7 @@
 
         // enforce consistent line breaks inside function parentheses
         // https://eslint.org/docs/rules/function-paren-newline
-        "function-paren-newline": [ "error", "consistent" ],
+        "function-paren-newline": [ "warn", "consistent" ],
 
         // Blacklist certain identifiers to prevent them being used
         // https://eslint.org/docs/rules/id-blacklist
@@ -1031,8 +1030,8 @@
         // this option sets a specific tab width for your code
         // https://eslint.org/docs/rules/indent
         "indent": [
-            "error",
-            2,
+            "warn",
+            4,
             {
                 "SwitchCase": 1,
                 "VariableDeclarator": 1,
@@ -1098,10 +1097,6 @@
             }
         ],
 
-        // disallow mixed 'LF' and 'CRLF' as linebreaks
-        // https://eslint.org/docs/rules/linebreak-style
-        "linebreak-style": [ "error", "unix" ],
-
         // require or disallow an empty line between class members
         // https://eslint.org/docs/rules/lines-between-class-members
         "lines-between-class-members": [
@@ -1130,7 +1125,7 @@
         // https://eslint.org/docs/rules/max-len
         "max-len": [
             "error",
-            100,
+            120,
             2,
             {
                 "ignoreUrls": true,
@@ -1259,7 +1254,7 @@
         ],
 
         // disallow mixed spaces and tabs for indentation
-        "no-mixed-spaces-and-tabs": "error",
+        "no-mixed-spaces-and-tabs": "warn",
 
         // disallow use of chained assignment expressions
         // https://eslint.org/docs/rules/no-multi-assign
@@ -1281,7 +1276,7 @@
         "no-negated-condition": "off",
 
         // disallow nested ternary expressions
-        "no-nested-ternary": "error",
+        "no-nested-ternary": "warn",
 
         // disallow use of the Object constructor
         "no-new-object": "error",
@@ -1407,7 +1402,7 @@
 
         // require a newline around variable declaration
         // https://eslint.org/docs/rules/one-var-declaration-per-line
-        "one-var-declaration-per-line": [ "error", "always" ],
+        "one-var-declaration-per-line": [ "warn", "always" ],
 
         // require assignment operator shorthand where possible or prohibit it entirely
         // https://eslint.org/docs/rules/operator-assignment
@@ -1416,7 +1411,7 @@
         // Requires operator at the beginning of the line in multiline statements
         // https://eslint.org/docs/rules/operator-linebreak
         "operator-linebreak": [
-            "error",
+            "warn",
             "before",
             { "overrides": { "=": "none" } }
         ],
@@ -1471,7 +1466,7 @@
         "require-jsdoc": "off",
 
         // require or disallow use of semicolons instead of ASI
-        "semi": [ "error", "always" ],
+        "semi": [ "warn", "always" ],
 
         // enforce spacing before and after semicolons
         "semi-spacing": [
@@ -1568,70 +1563,6 @@
         "unicode-bom": [ "error", "never" ],
 
         // require regex literals to be wrapped in parentheses
-        "wrap-regex": "off",
-        // enforce or disallow variable initializations at definition
-        "init-declarations": "off",
-
-        // disallow the catch clause parameter name being the same as a variable in the outer scope
-        "no-catch-shadow": "off",
-
-        // disallow deletion of variables
-        "no-delete-var": "error",
-
-        // disallow labels that share a name with a variable
-        // https://eslint.org/docs/rules/no-label-var
-        "no-label-var": "error",
-
-        // disallow specific globals
-        "no-restricted-globals": [
-            "error",
-            {
-                "name": "isFinite",
-                "message": "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite"
-            },
-            {
-                "name": "isNaN",
-                "message": "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan"
-            }
-        ]
-        ".concat(confusingBrowserGlobals)",
-        ,
-
-        // disallow declaration of variables already declared in the outer scope
-        "no-shadow": "error",
-
-        // disallow shadowing of names such as arguments
-        "no-shadow-restricted-names": "error",
-
-        // disallow use of undeclared variables unless mentioned in a /*global */ block
-        "no-undef": "error",
-
-        // disallow use of undefined when initializing variables
-        "no-undef-init": "error",
-
-        // disallow use of undefined variable
-        // https://eslint.org/docs/rules/no-undefined
-        // TODO: enable?
-        "no-undefined": "off",
-
-        // disallow declaration of variables that are not used in the code
-        "no-unused-vars": [
-            "error",
-            {
-                "vars": "all",
-                "args": "after-used",
-                "ignoreRestSiblings": true
-            }
-        ],
-
-        // disallow use of variables before they are defined
-        "no-use-before-define": [
-            "error",
-            {
-                "functions": true,
-                "classes": true,
-                "variables": true
-            }
-        ]
+        "wrap-regex": "off"
     }
 }
