@@ -67,14 +67,9 @@ Usage:
 ```
 const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
-const assets = [
-    {
-        name: 'javascript-files',
-        path: './Assets/Scripts/*.js'
-    }
-]
+const path = './Assets/Scripts/'
 
-gulp.task('build:js', () => jsTargets.compile(assets, './wwwroot'));
+gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
 ```
 
 ## Contributing and support

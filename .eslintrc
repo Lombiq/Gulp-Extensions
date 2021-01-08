@@ -149,6 +149,24 @@
                 "classes": true,
                 "variables": true
             }
-        ]
+        ],
+
+        "no-undef": "warn",
+
+        "object-shorthand": "warn",
+
+        "no-param-reassign": "warn",
+
+        "prefer-const": "warn",
+
+        "guard-for-in": "warn",
+
+        "no-restricted-syntax": "warn",
+
+        "dot-notation": "warn",
+
+        "no-plusplus": "warn",
+
+        "no-unused-expressions": "warn"
     }
 }

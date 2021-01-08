@@ -8,11 +8,7 @@ function compile(source, destination) {
     destination = destination ? destination : source;
 
     return gulp.src(source + '**/*.js')
-        .pipe(eslint({
-            'rules': {
-                'quotes': [1, 'single', { 'avoidEscape': true }]
-            }
-        }))
+        .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError())
         .pipe(gulp.dest(destination));
