@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -12,6 +12,7 @@
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
+    <ESLintConfigBaseTargetPath>../../eslint-base.js</ESLintConfigBaseTargetPath>
   </PropertyGroup>
 
   <!--
@@ -21,21 +22,18 @@
     Binding InitCommonNodeModules to run before both of those ensures that the NPM-related commands will run towards the
     beginning of the build only once, so there are no concurrent processes locking each other's files.
   -->
-  <Target
-    Name="InitCommonNodeModules"
-    BeforeTargets="PreBuildEvent;DispatchToInnerBuilds"
-    Inputs="package.json"
-    Outputs="$(InitCommonNodeModulesStampFile)">
+  <Target Name="InitCommonNodeModules" BeforeTargets="PreBuildEvent;DispatchToInnerBuilds" Inputs="package.json" Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
     <Exec Command="move node_modules ../.." Condition="Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
-  <Target
-    Name="CopyEslintConfigFile"
-    BeforeTargets="InitCommonNodeModules"
-    Condition="!Exists($(ESLintConfigFileTargetPath))">
+  <Target Name="CopyEslintConfigFile" BeforeTargets="InitCommonNodeModules" Condition="!Exists($(ESLintConfigFileTargetPath))">
     <Copy SourceFiles=".eslintrc" DestinationFolder="../.." />
+  </Target>
+
+  <Target Name="CopyEslintBaseFile" BeforeTargets="CopyEslintConfigFile" Condition="!Exists($(ESLintConfigBaseTargetPath))">
+    <Copy SourceFiles="eslint-base.js" DestinationFolder="../.."  />
   </Target>
   
 </Project>
