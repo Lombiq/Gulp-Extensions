@@ -8,7 +8,7 @@
     // Here we can define our own rules overriding the base rules
     "rules": {
         "max-len": [
-            "error",
+            "off",
             120,
             2,
             {
@@ -21,23 +21,23 @@
         ],
 
         "eqeqeq": [
-            "warn",
+            "off",
             "always",
             { null: "ignore" }
         ],
 
-        "no-sequences": "warn",
+        "no-sequences": "off",
 
-        "vars-on-top": "warn",
+        "vars-on-top": "off",
 
-        "no-empty": "warn",
+        "no-empty": "off",
 
-        "arrow-parens": [ "warn", "always" ],
+        "arrow-parens": [ "off", "always" ],
 
-        "no-var": "warn",
+        "no-var": "off",
 
         "prefer-arrow-callback": [
-            "warn",
+            "off",
             {
                 "allowNamedFunctions": false,
                 "allowUnboundThis": true
@@ -45,7 +45,7 @@
         ],
 
         "prefer-destructuring": [
-            "warn",
+            "off",
             {
                 "VariableDeclarator": {
                     "array": false,
@@ -61,18 +61,18 @@
             }
         ],
 
-        "prefer-rest-params": "warn",
+        "prefer-rest-params": "off",
 
-        "prefer-template": "warn",
+        "prefer-template": "off",
 
         "brace-style": [
-            "warn",
+            "off",
             "stroustrup",
             { "allowSingleLine": true }
         ],
 
         "comma-dangle": [
-            "warn",
+            "off",
             {
                 "arrays": "always-multiline",
                 "objects": "always-multiline",
@@ -82,10 +82,10 @@
             }
         ],
 
-        "function-paren-newline": [ "warn", "consistent" ],
+        "function-paren-newline": [ "off", "consistent" ],
 
         "indent": [
-            "warn",
+            "off",
             4,
             {
                 "SwitchCase": 1,
@@ -113,28 +113,28 @@
             }
         ],
 
-        "no-mixed-spaces-and-tabs": "warn",
+        "no-mixed-spaces-and-tabs": "off",
 
-        "no-nested-ternary": "warn",
+        "no-nested-ternary": "off",
 
-        "linebreak-style": [ "warn", "unix" ],
+        "linebreak-style": [ "off", "unix" ],
 
-        "semi": [ "warn", "always" ],
+        "semi": [ "off", "always" ],
 
-        "one-var-declaration-per-line": [ "warn", "always" ],
+        "one-var-declaration-per-line": [ "off", "always" ],
 
         "operator-linebreak": [
-            "warn",
+            "off",
             "before",
             { "overrides": { "=": "none" } }
         ],
 
-        "consistent-return": "warn",
+        "consistent-return": "off",
 
-        "no-shadow": "warn",
+        "no-shadow": "off",
 
         "no-unused-vars": [
-            "warn",
+            "off",
             {
                 "vars": "all",
                 "args": "after-used",
@@ -143,7 +143,7 @@
         ],
 
         "no-use-before-define": [
-            "warn",
+            "off",
             {
                 "functions": true,
                 "classes": true,
@@ -151,22 +151,22 @@
             }
         ],
 
-        "no-undef": "warn",
+        "no-undef": "off",
 
-        "object-shorthand": "warn",
+        "object-shorthand": "off",
 
-        "no-param-reassign": "warn",
+        "no-param-reassign": "off",
 
-        "prefer-const": "warn",
+        "prefer-const": "off",
 
-        "guard-for-in": "warn",
+        "guard-for-in": "off",
 
-        "no-restricted-syntax": "warn",
+        "no-restricted-syntax": "off",
 
-        "dot-notation": "warn",
+        "dot-notation": "off",
 
-        "no-plusplus": "warn",
+        "no-plusplus": "off",
 
-        "no-unused-expressions": "warn"
+        "no-unused-expressions": "off"
     }
 }
