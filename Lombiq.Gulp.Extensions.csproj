@@ -30,12 +30,12 @@
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
-  <Target Name="CopyEslintConfigFile" BeforeTargets="InitCommonNodeModules" Condition="!Exists($(ESLintConfigFileTargetPath))">
+  <!--<Target Name="CopyEslintConfigFile" BeforeTargets="InitCommonNodeModules" Condition="!Exists($(ESLintConfigFileTargetPath))">
     <Copy SourceFiles=".eslintrc" DestinationFolder="../.." />
   </Target>
 
   <Target Name="CopyEslintBaseFile" BeforeTargets="CopyEslintConfigFile" Condition="!Exists($(ESLintConfigBaseTargetPath))">
     <Copy SourceFiles="eslint-base.js" DestinationFolder="../.."  />
-  </Target>
+  </Target>-->
   
 </Project>
