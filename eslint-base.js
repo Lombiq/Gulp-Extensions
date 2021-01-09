@@ -78,7 +78,7 @@ module.exports = {
         'max-classes-per-file': ['error', 1],
 
         // disallow the use of alert, confirm, and prompt
-        'no-alert': 'warn',
+        'no-alert': 'off',
 
         // disallow use of arguments.caller or arguments.callee
         'no-caller': 'error',
@@ -341,8 +341,8 @@ module.exports = {
         // https://eslint.org/docs/rules/no-void
         'no-void': 'error',
 
-        // disallow usage of configurable warning terms in comments: e.g. todo
-        'no-warning-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
+        // disallow usage of configurable offing terms in comments: e.g. todo
+        'no-offing-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
 
         // disallow use of the with statement
         'no-with': 'error',
@@ -404,10 +404,10 @@ module.exports = {
         'no-cond-assign': ['error', 'always'],
 
         // disallow use of console
-        'no-console': 'warn',
+        'no-console': 'off',
 
         // disallow use of constant expressions in conditions
-        'no-constant-condition': 'warn',
+        'no-constant-condition': 'off',
 
         // disallow control characters in regular expressions
         'no-control-regex': 'error',
@@ -824,7 +824,7 @@ module.exports = {
 
         // require function expressions to have a name
         // https://eslint.org/docs/rules/func-names
-        'func-names': 'warn',
+        'func-names': 'off',
 
         // enforces use of function declarations or expressions
         // https://eslint.org/docs/rules/func-style
