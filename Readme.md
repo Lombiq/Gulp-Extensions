@@ -50,7 +50,6 @@ const assets = [
         path: './Assets/images/**/*'
     }
 ]
-
 gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
 
@@ -71,8 +70,12 @@ const path = './Assets/Scripts/'
 
 gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
 ```
+Alternativley if you only want to check and copy one file you can use the `compileOne` function.
 
 The base rules for the linter are found in the `eslint-base.js` file, you can add your own rules in the `.eslintrc` file overriding the base rules. 
+
+These base rules are from the [airbnb](https://github.com/airbnb/javascript) javascript style guide.
+
 These files are copied to the `src` directory on build, in order for them to work properly with ESLint.
 
 ## Contributing and support
