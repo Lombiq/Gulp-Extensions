@@ -78,7 +78,7 @@ module.exports = {
         'max-classes-per-file': ['error', 1],
 
         // disallow the use of alert, confirm, and prompt
-        'no-alert': 'off',
+        'no-alert': 'warn',
 
         // disallow use of arguments.caller or arguments.callee
         'no-caller': 'error',
@@ -404,10 +404,10 @@ module.exports = {
         'no-cond-assign': ['error', 'always'],
 
         // disallow use of console
-        'no-console': 'off',
+        'no-console': 'warn',
 
         // disallow use of constant expressions in conditions
-        'no-constant-condition': 'off',
+        'no-constant-condition': 'warn',
 
         // disallow control characters in regular expressions
         'no-control-regex': 'error',
@@ -824,7 +824,7 @@ module.exports = {
 
         // require function expressions to have a name
         // https://eslint.org/docs/rules/func-names
-        'func-names': 'off',
+        'func-names': 'warn',
 
         // enforces use of function declarations or expressions
         // https://eslint.org/docs/rules/func-style

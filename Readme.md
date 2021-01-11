@@ -72,6 +72,9 @@ const path = './Assets/Scripts/'
 gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
 ```
 
+The base rules for the linter are found in the `eslint-base.js` file, you can add your own rules in the `.eslintrc` file overriding the base rules. 
+These files are copied to the `src` directory on build, in order for them to work properly with ESLint.
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
