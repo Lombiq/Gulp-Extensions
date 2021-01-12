@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const del = require('del');
 const eslint = require('gulp-eslint');
-const { src } = require('gulp');
 
 function compile(source, destination) {
     destination = destination ? destination : source;
