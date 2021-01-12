@@ -1,0 +1,188 @@
+{
+    "plugins": [
+        "node",
+        "promise"
+    ],
+    "extends": "./eslint-base.js",
+
+    // Here we can define our own rules overriding the base rules
+    "rules": {
+        "max-len": [
+            "off",
+            120,
+            2,
+            {
+                "ignoreUrls": true,
+                "ignoreComments": false,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+
+        "eqeqeq": [
+            "off",
+            "always",
+            { null: "ignore" }
+        ],
+
+        "no-sequences": "off",
+
+        "vars-on-top": "off",
+
+        "no-empty": "off",
+
+        "arrow-parens": [ "off", "always" ],
+
+        "no-var": "off",
+
+        "prefer-arrow-callback": [
+            "off",
+            {
+                "allowNamedFunctions": false,
+                "allowUnboundThis": true
+            }
+        ],
+
+        "prefer-destructuring": [
+            "off",
+            {
+                "VariableDeclarator": {
+                    "array": false,
+                    "object": true
+                },
+                "AssignmentExpression": {
+                    "array": true,
+                    "object": false
+                }
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ],
+
+        "prefer-rest-params": "off",
+
+        "prefer-template": "off",
+
+        "brace-style": [
+            "off",
+            "stroustrup",
+            { "allowSingleLine": true }
+        ],
+
+        "comma-dangle": [
+            "off",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "always-multiline"
+            }
+        ],
+
+        "function-paren-newline": [ "off", "consistent" ],
+
+        "indent": [
+            "off",
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": 1,
+                "outerIIFEBody": 1,
+                // MemberExpression: null,
+                "FunctionDeclaration": {
+                    "parameters": 1,
+                    "body": 1
+                },
+                "FunctionExpression": {
+                    "parameters": 1,
+                    "body": 1
+                },
+                "CallExpression": {
+                    "arguments": 1
+                },
+                "ArrayExpression": 1,
+                "ObjectExpression": 1,
+                "ImportDeclaration": 1,
+                "flatTernaryExpressions": false,
+                // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
+                "ignoredNodes": [ "JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild" ],
+                "ignoreComments": false
+            }
+        ],
+
+        "no-mixed-spaces-and-tabs": "off",
+
+        "no-nested-ternary": "off",
+
+        "linebreak-style": [ "off", "unix" ],
+
+        "semi": [ "off", "always" ],
+
+        "one-var-declaration-per-line": [ "off", "always" ],
+
+        "operator-linebreak": [
+            "off",
+            "before",
+            { "overrides": { "=": "none" } }
+        ],
+
+        "consistent-return": "off",
+
+        "no-shadow": "off",
+
+        "no-unused-vars": [
+            "off",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true
+            }
+        ],
+
+        "no-use-before-define": [
+            "off",
+            {
+                "functions": true,
+                "classes": true,
+                "variables": true
+            }
+        ],
+
+        "no-undef": "off",
+
+        "object-shorthand": "off",
+
+        "no-param-reassign": "off",
+
+        "prefer-const": "off",
+
+        "guard-for-in": "off",
+
+        "no-restricted-syntax": "off",
+
+        "dot-notation": "off",
+
+        "no-plusplus": "off",
+
+        "no-unused-expressions": "off",
+        
+        "no-extra-semi" : "off",
+        
+        "wrap-iife" : "off",
+        
+        "no-shadow-restricted-names" : "off",
+        
+        "radix" : "off",
+        
+        "quote-props" : "off",
+        
+        "no-underscore-dangle" : "off",
+        
+        "default-case" : "off",
+        
+        "no-lonely-if" : "off"
+    }
+}

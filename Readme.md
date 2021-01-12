@@ -50,9 +50,30 @@ const assets = [
         path: './Assets/images/**/*'
     }
 ]
-
 gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
+
+### JS Targets (ESLint)
+
+This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (**ESLint**) on it.
+
+Import the _Task/js-targets.js_ file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+
+Input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be code analyzed and copied.
+
+Usage:
+
+```
+const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
+
+const path = './Assets/Scripts/'
+
+gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
+```
+
+The base rules for the linter are found in the *eslint-base.js* file, you can add your own rules in the `.eslintrc` file overriding the base rules.
+
+These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). The rules in the *eslint-base.js* file are from [these files](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) in the Style Guide. You can update it by copying and pasting the new rules from the Airbnb repo.
 
 
 ## Contributing and support
