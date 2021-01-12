@@ -70,9 +70,10 @@ const path = './Assets/Scripts/'
 
 gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
 ```
-The base rules for the linter are found in the `eslint-base.js` file, you can add your own rules in the `.eslintrc` file overriding the base rules. 
-These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
-The rules in the `eslint-base.js` file are from [these](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) files in the Style Guide, you can update `eslint-base.js` by copying and pasting the new rules in the Airbnb repo.
+
+The base rules for the linter are found in the *eslint-base.js* file, you can add your own rules in the `.eslintrc` file overriding the base rules.
+
+These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). The rules in the *eslint-base.js* file are from [these files](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) in the Style Guide. You can update it by copying and pasting the new rules from the Airbnb repo.
 
 
 ## Contributing and support
