@@ -15,18 +15,8 @@ function compile(source, destination) {
         .pipe(gulp.dest(destination));
 };
 
-function compileOne(source, destination) {
-    destination = destination ? destination : source;
-
-    return gulp.src(source)
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failOnError())
-        .pipe(gulp.dest(destination));
-};
-
 function clean(destination) {
     return async () => await del(destination + '**/*.js');
 }
 
-module.exports = { compile, clean, compileOne };
+module.exports = { compile, clean };
