@@ -74,6 +74,7 @@ The base rules for the linter are found in the `eslint-base.js` file, you can ad
 These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
 The rules in the `eslint-base.js` file are from [these](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) files in the Style Guide, you can update `eslint-base.js` by copying and pasting the new rules in the Airbnb repo.
 
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
