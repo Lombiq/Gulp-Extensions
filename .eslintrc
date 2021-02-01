@@ -22,8 +22,6 @@
 
         "vars-on-top": "off",
 
-        // "arrow-parens": [ "off", "always" ],
-
         "no-var": "off",
 
         "prefer-arrow-callback": [
@@ -50,8 +48,6 @@
                 "enforceForRenamedProperties": false
             }
         ],
-
-        "prefer-rest-params": "off",
 
         "prefer-template": "off",
 
