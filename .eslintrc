@@ -20,14 +20,6 @@
             }
         ],
 
-        //"eqeqeq": [
-        //    "off",
-        //    "always",
-        //    { null: "ignore" }
-        //],
-
-        "no-sequences": "off",
-
         "vars-on-top": "off",
 
         "no-empty": "off",
