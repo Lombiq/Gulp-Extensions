@@ -22,7 +22,7 @@
 
         "vars-on-top": "off",
 
-        "no-empty": "off",
+        // "no-empty": "off",
 
         "arrow-parens": [ "off", "always" ],
 
