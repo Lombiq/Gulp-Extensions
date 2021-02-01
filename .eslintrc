@@ -20,11 +20,11 @@
             }
         ],
 
-        "eqeqeq": [
-            "off",
-            "always",
-            { null: "ignore" }
-        ],
+        //"eqeqeq": [
+        //    "off",
+        //    "always",
+        //    { null: "ignore" }
+        //],
 
         "no-sequences": "off",
 
