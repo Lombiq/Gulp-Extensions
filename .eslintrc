@@ -8,7 +8,7 @@
     // Here we can define our own rules overriding the base rules
     "rules": {
         "max-len": [
-            "off",
+            "error",
             120,
             2,
             {
