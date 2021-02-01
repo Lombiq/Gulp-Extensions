@@ -26,6 +26,12 @@
             { "allowSingleLine": true }
         ],
 
+        // Things that may not need to change:
+
+        "prefer-template": "off",
+
+        // Things that need change:
+
         "vars-on-top": "off",
 
         "no-var": "off",
@@ -54,8 +60,6 @@
                 "enforceForRenamedProperties": false
             }
         ],
-
-        "prefer-template": "off",
 
         "comma-dangle": [
             "off",
