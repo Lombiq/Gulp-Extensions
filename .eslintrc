@@ -26,23 +26,25 @@
             { "allowSingleLine": true }
         ],
 
+        "prefer-template": "off",
+
+        "prefer-arrow-callback": [
+            "error",
+            {
+                "allowNamedFunctions": true,
+                "allowUnboundThis": true
+            }
+        ],
+
         // Things that may not need to change:
 
-        "prefer-template": "off",
+
 
         // Things that need change:
 
         "vars-on-top": "off",
 
         "no-var": "off",
-
-        "prefer-arrow-callback": [
-            "off",
-            {
-                "allowNamedFunctions": false,
-                "allowUnboundThis": true
-            }
-        ],
 
         "prefer-destructuring": [
             "off",
@@ -173,6 +175,8 @@
 
         "default-case": "off",
 
-        "no-lonely-if": "off"
+        "no-lonely-if": "off",
+
+        "arrow-body-style": "off"
     }
 }
