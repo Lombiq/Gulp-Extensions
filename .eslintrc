@@ -105,8 +105,6 @@
             }
         ],
 
-        "no-mixed-spaces-and-tabs": "off",
-
         "no-nested-ternary": "off",
 
         "linebreak-style": [ "off", "unix" ],
