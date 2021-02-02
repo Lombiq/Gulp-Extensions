@@ -49,10 +49,6 @@
 
         // Things that need change:
 
-        "vars-on-top": "off",
-
-        "no-var": "off",
-
         "prefer-destructuring": [
             "off",
             {
@@ -116,8 +112,6 @@
 
         "semi": [ "off", "always" ],
 
-        "one-var-declaration-per-line": [ "off", "always" ],
-
         "operator-linebreak": [
             "off",
             "before",
@@ -125,17 +119,6 @@
         ],
 
         "consistent-return": "off",
-
-
-
-        "no-unused-vars": [
-            "off",
-            {
-                "vars": "all",
-                "args": "after-used",
-                "ignoreRestSiblings": true
-            }
-        ],
 
         "no-use-before-define": [
             "off",
@@ -146,13 +129,9 @@
             }
         ],
 
-        "no-undef": "off",
-
         "object-shorthand": "off",
 
         "no-param-reassign": "off",
-
-        "prefer-const": "off",
 
         "guard-for-in": "off",
 
@@ -178,6 +157,25 @@
 
         "no-lonely-if": "off",
 
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+
+        // var/const/let things:
+
+        "vars-on-top": "off",
+
+        "no-var": "off",
+
+        "one-var-declaration-per-line": [ "off", "always" ],
+
+        "no-unused-vars": [
+            "off",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true
+            }
+        ],
+
+        "prefer-const": "off"
     }
 }
