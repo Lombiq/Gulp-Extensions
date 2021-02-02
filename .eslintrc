@@ -148,8 +148,6 @@
 
         "no-restricted-syntax": "off",
 
-        "dot-notation": "off",
-
         "no-unused-expressions": "off",
 
         "no-extra-semi": "off",
