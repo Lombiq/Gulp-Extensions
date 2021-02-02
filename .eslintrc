@@ -28,6 +28,10 @@
 
         "prefer-template": "off",
 
+        // Things that may not need to change:
+
+        "no-shadow": "warn",
+
         "prefer-arrow-callback": [
             "error",
             {
@@ -35,10 +39,6 @@
                 "allowUnboundThis": true
             }
         ],
-
-        // Things that may not need to change:
-
-
 
         // Things that need change:
 
@@ -121,7 +121,7 @@
 
         "consistent-return": "off",
 
-        "no-shadow": "off",
+
 
         "no-unused-vars": [
             "off",
