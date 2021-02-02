@@ -33,6 +33,8 @@
             { "allowForLoopAfterthoughts": true }
         ],
 
+        "linebreak-style": [ "error", "windows" ],
+
         // Things that may not need to change:
 
         "no-shadow": "off",
@@ -122,8 +124,6 @@
                 "ignoreComments": false
             }
         ],
-
-        "linebreak-style": [ "off", "unix" ],
 
         "semi": [ "off", "always" ],
 
