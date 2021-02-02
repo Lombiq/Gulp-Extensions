@@ -47,6 +47,21 @@
 
         "no-nested-ternary": "off",
 
+        // Things that need debate in General:
+
+        "guard-for-in": "off",
+
+        "wrap-iife": [
+            "off",
+            "outside", // works with any
+            { "functionPrototypeMethods": false }
+        ],
+
+        "object-shorthand": [
+            "off",
+            "consistent-as-needed"
+        ],
+
         // Things that need change:
 
         "prefer-destructuring": [
@@ -129,11 +144,7 @@
             }
         ],
 
-        "object-shorthand": "off",
-
         "no-param-reassign": "off",
-
-        "guard-for-in": "off",
 
         "no-restricted-syntax": "off",
 
@@ -142,8 +153,6 @@
         "no-unused-expressions": "off",
 
         "no-extra-semi": "off",
-
-        "wrap-iife": "off",
 
         "no-shadow-restricted-names": "off",
 
