@@ -28,9 +28,14 @@
 
         "prefer-template": "off",
 
+        "no-plusplus": [
+            "off",
+            { "allowForLoopAfterthoughts": true }
+        ],
+
         // Things that may not need to change:
 
-        "no-shadow": "warn",
+        "no-shadow": "off",
 
         "prefer-arrow-callback": [
             "error",
@@ -39,6 +44,8 @@
                 "allowUnboundThis": true
             }
         ],
+
+        "no-nested-ternary": "off",
 
         // Things that need change:
 
@@ -105,8 +112,6 @@
             }
         ],
 
-        "no-nested-ternary": "off",
-
         "linebreak-style": [ "off", "unix" ],
 
         "semi": [ "off", "always" ],
@@ -154,8 +159,6 @@
         "no-restricted-syntax": "off",
 
         "dot-notation": "off",
-
-        "no-plusplus": "off",
 
         "no-unused-expressions": "off",
 
