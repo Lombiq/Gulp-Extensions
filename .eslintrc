@@ -165,15 +165,6 @@
             { "overrides": { "=": "none" } }
         ],
 
-        "no-use-before-define": [
-            "off",
-            {
-                "functions": true,
-                "classes": true,
-                "variables": true
-            }
-        ],
-
         // var/const/let things:
 
         "no-shadow": "off", // Will be fixed with let probably
