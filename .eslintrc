@@ -176,8 +176,6 @@
 
         "no-shadow-restricted-names": "off",
 
-        "arrow-body-style": "off",
-
         // var/const/let things:
 
         "no-shadow": "off", // Will be fixed with let probably
