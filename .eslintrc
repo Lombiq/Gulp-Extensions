@@ -101,11 +101,14 @@
             }
         ],
 
+        "no-else-return": [
+            "error",
+            { "allowElseIf": true }
+        ],
+
         // Things that need debate in General:
 
         "guard-for-in": "off",
-
-        "no-nested-ternary": "off",
 
         "object-shorthand": [
             "off",
