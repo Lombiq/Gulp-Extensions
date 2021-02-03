@@ -163,8 +163,6 @@
 
         "no-underscore-dangle": "off",
 
-        "default-case": "off",
-
         "no-lonely-if": "off",
 
         "arrow-body-style": "off",
