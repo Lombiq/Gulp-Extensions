@@ -42,34 +42,39 @@
             }
         ],
 
-        // Things that may not need to change:
-
-        "no-shadow": "off",
+        "wrap-iife": [
+            "error",
+            "any", // outside originally
+            { "functionPrototypeMethods": false }
+        ],
 
         "prefer-arrow-callback": [
             "error",
             {
-                "allowNamedFunctions": true,
+                "allowNamedFunctions": true, // false originally
                 "allowUnboundThis": true
             }
         ],
 
-        "no-nested-ternary": "off",
+        "no-underscore-dangle": [
+            "error",
+            {
+                "allowAfterThis" :  true
+            }
+        ],
 
         // Things that need debate in General:
 
         "guard-for-in": "off",
 
-        "wrap-iife": [
-            "off",
-            "outside", // works with any
-            { "functionPrototypeMethods": false }
-        ],
+        "no-nested-ternary": "off",
 
         "object-shorthand": [
             "off",
             "consistent-as-needed"
         ],
+
+
 
         // Things that need change:
 
@@ -155,11 +160,11 @@
 
         "no-shadow-restricted-names": "off",
 
-        "no-underscore-dangle": "off",
-
         "arrow-body-style": "off",
 
         // var/const/let things:
+
+        "no-shadow": "off", // Will be fixed with let probably
 
         "vars-on-top": "off",
 
