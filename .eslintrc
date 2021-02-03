@@ -163,8 +163,6 @@
 
         "no-underscore-dangle": "off",
 
-        "no-lonely-if": "off",
-
         "arrow-body-style": "off",
 
         // var/const/let things:
