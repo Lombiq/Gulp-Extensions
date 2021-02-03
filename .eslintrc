@@ -149,13 +149,9 @@
             }
         ],
 
-        // "no-param-reassign": "off",
-
         "no-restricted-syntax": "off",
 
         "no-unused-expressions": "off",
-
-        "no-extra-semi": "off",
 
         "no-shadow-restricted-names": "off",
 
