@@ -156,8 +156,6 @@
             { "overrides": { "=": "none" } }
         ],
 
-        "consistent-return": "off",
-
         "no-use-before-define": [
             "off",
             {
@@ -166,8 +164,6 @@
                 "variables": true
             }
         ],
-
-
 
         "no-unused-expressions": "off",
 
