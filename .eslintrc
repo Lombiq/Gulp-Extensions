@@ -132,8 +132,6 @@
             }
         ],
 
-        "semi": [ "off", "always" ],
-
         "operator-linebreak": [
             "off",
             "before",
