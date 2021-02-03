@@ -7,6 +7,7 @@
 
     // Here we can define our own rules overriding the base rules
     "rules": {
+        // Lombiq rules
         "max-len": [
             "error",
             120,
@@ -90,8 +91,6 @@
             "consistent-as-needed"
         ],
 
-
-
         // Things that need change:
 
         "prefer-destructuring": [
@@ -121,8 +120,6 @@
                 "functions": "always-multiline"
             }
         ],
-
-        "function-paren-newline": [ "off", "consistent" ],
 
         "indent": [
             "off",
