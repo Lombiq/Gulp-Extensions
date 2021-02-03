@@ -89,6 +89,18 @@
             }
         ],
 
+        "operator-linebreak": [
+            "error",
+            "after",
+            {
+                "overrides": {
+                    "=": "none",
+                    "?": "ignore",
+                    ":": "ignore"
+                }
+            }
+        ],
+
         // Things that need debate in General:
 
         "guard-for-in": "off",
@@ -157,12 +169,6 @@
                 "ignoredNodes": [ "JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild" ],
                 "ignoreComments": false
             }
-        ],
-
-        "operator-linebreak": [
-            "off",
-            "before",
-            { "overrides": { "=": "none" } }
         ],
 
         // var/const/let things:
