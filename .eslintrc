@@ -160,25 +160,6 @@
 
         //#endregion
 
-        // var/const/let things:
-
-        "no-var": "off",
-
-        "prefer-const": "off",
-
-        "vars-on-top": "off",
-
-        "one-var-declaration-per-line": [ "off", "always" ],
-
-        "no-unused-vars": [
-            "off",
-            {
-                "vars": "all",
-                "args": "after-used",
-                "ignoreRestSiblings": true
-            }
-        ],
-
         "no-shadow": "off" // Will be fixed with let probably
     }
 }
