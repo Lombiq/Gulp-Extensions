@@ -113,10 +113,6 @@
         ],
         //#endregion
 
-        // Things that need debate in General:
-
-        "guard-for-in": "off",
-
         // Things that need change:
 
         "prefer-destructuring": [
@@ -136,16 +132,16 @@
             }
         ],
 
-        "comma-dangle": [
-            "off",
-            {
-                "arrays": "always-multiline",
-                "objects": "always-multiline",
-                "imports": "always-multiline",
-                "exports": "always-multiline",
-                "functions": "always-multiline"
-            }
-        ],
+        //"comma-dangle": [
+        //    "off",
+        //    {
+        //        "arrays": "always-multiline",
+        //        "objects": "always-multiline",
+        //        "imports": "always-multiline",
+        //        "exports": "always-multiline",
+        //        "functions": "always-multiline"
+        //    }
+        //],
 
         "indent": [
             "off",
