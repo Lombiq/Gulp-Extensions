@@ -111,16 +111,13 @@
             "error",
             "consistent-as-needed"
         ],
-        //#endregion
-
-        // Things that need change:
 
         "prefer-destructuring": [
-            "off",
+            "error",
             {
                 "VariableDeclarator": {
                     "array": false,
-                    "object": true
+                    "object": false
                 },
                 "AssignmentExpression": {
                     "array": true,
@@ -131,17 +128,9 @@
                 "enforceForRenamedProperties": false
             }
         ],
+        //#endregion
 
-        //"comma-dangle": [
-        //    "off",
-        //    {
-        //        "arrays": "always-multiline",
-        //        "objects": "always-multiline",
-        //        "imports": "always-multiline",
-        //        "exports": "always-multiline",
-        //        "functions": "always-multiline"
-        //    }
-        //],
+        // Things that need change:
 
         "indent": [
             "off",
