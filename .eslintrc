@@ -155,6 +155,12 @@
                 "ignoredNodes": [ "JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild" ],
                 "ignoreComments": false
             }
-        ]
+        ],
+
+        // debated
+
+        "func-names": [ "error", "never" ],
+
+        "no-alert": "off"
     }
 }
