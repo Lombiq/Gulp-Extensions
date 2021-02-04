@@ -7,7 +7,6 @@
 
     // Here we can define our own rules overriding the base rules
     "rules": {
-        //#region
         // Lombiq rules
         "max-len": [
             "error",
@@ -156,10 +155,6 @@
                 "ignoredNodes": [ "JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild" ],
                 "ignoreComments": false
             }
-        ],
-
-        //#endregion
-
-        "no-shadow": "off" // Will be fixed with let probably
+        ]
     }
 }
