@@ -157,7 +157,7 @@
             }
         ],
 
-        "func-names": [ "warn", "as-needed" ],
+        "func-names": [ "error", "as-needed" ],
 
         "no-alert": "off"
     }
