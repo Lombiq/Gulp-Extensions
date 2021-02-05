@@ -157,9 +157,7 @@
             }
         ],
 
-        // debated
-
-        "func-names": [ "error", "never" ],
+        "func-names": [ "warn", "as-needed" ],
 
         "no-alert": "off"
     }
