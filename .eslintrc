@@ -30,7 +30,7 @@
         "prefer-template": "off",
 
         "no-plusplus": [
-            "off",
+            "error",
             { "allowForLoopAfterthoughts": true }
         ],
 
