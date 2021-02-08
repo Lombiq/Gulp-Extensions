@@ -10,7 +10,7 @@ function compile(source, destination) {
     return gulp.src(source + '**/*.js')
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failOnError())
+        .pipe(eslint.failAfterError())
         .pipe(gulp.dest(destination));
 };
 
