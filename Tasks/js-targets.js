@@ -13,4 +13,4 @@ function compile(source, destination) {
         .pipe(gulp.dest(destination));
 };
 
-module.exports = compile;
+module.exports = { compile };
