@@ -68,7 +68,9 @@ const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
 const path = './Assets/Scripts/'
 
-gulp.task('build:js', () => jsTargets.compile(path, './wwwroot/directory-to-copy-into'));
+const destination = './directory-to-cop-into'
+
+gulp.task('build:js', () => jsTargets.compile(path, destination));
 ```
 
 The base rules for the linter are found in the *eslint-base.js* file, you can add your own rules in the `.eslintrc` file overriding the base rules.
