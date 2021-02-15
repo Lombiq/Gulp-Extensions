@@ -77,6 +77,8 @@ The base rules for the linter are found in the *eslint-base.js* file, you can ad
 
 These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). The rules in the *eslint-base.js* file are from [these files](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) in the Style Guide. You can update it by copying and pasting the new rules from the Airbnb repo.
 
+The build output or task runner will show you a list of all the ESLint rule violations.
+
 
 ## Contributing and support
 
