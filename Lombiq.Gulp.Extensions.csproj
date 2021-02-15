@@ -14,6 +14,7 @@
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
     <ESLintConfigBaseTargetPath>../../eslint-base.js</ESLintConfigBaseTargetPath>
+    <ESLintConfigLombiqTargetPath>../../lombiq-base.js</ESLintConfigLombiqTargetPath>
   </PropertyGroup>
 
   <!--
@@ -32,11 +33,15 @@
   </Target>
 
   <Target Name="CopyEslintConfigFile" BeforeTargets="InitCommonNodeModules" Condition="!Exists($(ESLintConfigFileTargetPath))">
-    <Copy SourceFiles=".eslintrc" DestinationFolder="../.." />
+    <Copy SourceFiles="ESLint/.eslintrc" DestinationFolder="../.." />
   </Target>
 
   <Target Name="CopyEslintBaseFile" BeforeTargets="CopyEslintConfigFile" Condition="!Exists($(ESLintConfigBaseTargetPath))">
-    <Copy SourceFiles="eslint-base.js" DestinationFolder="../.."  />
+    <Copy SourceFiles="ESLint/eslint-base.js" DestinationFolder="../.." />
+  </Target>
+
+  <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile" Condition="!Exists($(ESLintConfigLombiqTargetPath))">
+    <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
   </Target>
 
 </Project>

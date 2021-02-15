@@ -1,8 +1,4 @@
-{
-    "plugins": [
-        "node",
-        "promise"
-    ],
+module.exports = {
     "extends": "./eslint-base.js",
 
     // Here we can define our own rules overriding the base rules
@@ -34,7 +30,7 @@
             { "allowForLoopAfterthoughts": true }
         ],
 
-        "linebreak-style": [ "error", "windows" ],
+        "linebreak-style": ["error", "windows"],
 
         "no-param-reassign": [
             "error",
@@ -152,12 +148,12 @@
                 "ImportDeclaration": 1,
                 "flatTernaryExpressions": false,
                 // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
-                "ignoredNodes": [ "JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild" ],
+                "ignoredNodes": ["JSXElement", "JSXElement > *", "JSXAttribute", "JSXIdentifier", "JSXNamespacedName", "JSXMemberExpression", "JSXSpreadAttribute", "JSXExpressionContainer", "JSXOpeningElement", "JSXClosingElement", "JSXFragment", "JSXOpeningFragment", "JSXClosingFragment", "JSXText", "JSXEmptyExpression", "JSXSpreadChild"],
                 "ignoreComments": false
             }
         ],
 
-        "func-names": [ "error", "as-needed" ],
+        "func-names": ["error", "as-needed"],
 
         "no-alert": "off"
     }
