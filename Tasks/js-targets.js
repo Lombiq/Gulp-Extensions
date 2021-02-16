@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const del = require('del');
 const eslint = require('gulp-eslint');
 
 function compile(source, destination) {
@@ -12,4 +13,8 @@ function compile(source, destination) {
         .pipe(gulp.dest(copyDestination));
 }
 
-module.exports = { compile };
+function clean(destination) {
+    return async () => await del(destination + '**/*.js');
+}
+
+module.exports = { compile, clean };
