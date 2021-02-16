@@ -68,7 +68,7 @@ const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
 const path = './Assets/Scripts/'
 
-const destination = './directory-to-cop-into'
+const destination = './directory-to-copy-into'
 
 gulp.task('build:js', () => jsTargets.compile(path, destination));
 ```
