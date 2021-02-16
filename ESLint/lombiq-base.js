@@ -65,7 +65,7 @@ module.exports = {
             'error',
             {
                 'selector': 'ForOfStatement',
-                'message': 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.'
+                'message': 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide (https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js) to allow them. Separately, loops should be avoided in favor of array iterations.'
             },
             {
                 'selector': 'LabeledStatement',
