@@ -13,8 +13,6 @@
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
-    <ESLintConfigBaseTargetPath>../../eslint-base.js</ESLintConfigBaseTargetPath>
-    <ESLintConfigLombiqTargetPath>../../lombiq-base.js</ESLintConfigLombiqTargetPath>
   </PropertyGroup>
 
   <!--
