@@ -12,9 +12,9 @@ module.exports = {
             {
                 'ignoreUrls': true,
                 'ignoreComments': false,
-                'ignoreRegExpLiterals': true,
-                'ignoreStrings': true,
-                'ignoreTemplateLiterals': true
+                'ignoreRegExpLiterals': false,
+                'ignoreStrings': false,
+                'ignoreTemplateLiterals': false
             }
         ],
 
@@ -158,7 +158,7 @@ module.exports = {
 
         'no-alert': 'off',
 
-        'function-paren-newline': ['error', { 'minItems': 3 }],
+        'function-paren-newline': ['off', 'consistent'],
 
         'comma-dangle': ['error', {
             arrays: 'always-multiline',
@@ -167,5 +167,7 @@ module.exports = {
             exports: 'always-multiline',
             functions: 'never',
         }],
+
+        'function-call-argument-newline': ['error', 'consistent'],
     }
 }
