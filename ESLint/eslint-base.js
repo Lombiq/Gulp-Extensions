@@ -1,3 +1,6 @@
+// Rules come from Airbnb, you can find the original files at:
+// https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules
+
 /* eslint-disable */
 module.exports = {
     env: {
