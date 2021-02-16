@@ -36,11 +36,11 @@
     <Copy SourceFiles="ESLint/.eslintrc" DestinationFolder="../.." />
   </Target>
 
-  <Target Name="CopyEslintBaseFile" BeforeTargets="CopyEslintConfigFile" Condition="!Exists($(ESLintConfigBaseTargetPath))">
+  <Target Name="CopyEslintBaseFile" BeforeTargets="CopyEslintConfigFile">
     <Copy SourceFiles="ESLint/eslint-base.js" DestinationFolder="../.." />
   </Target>
 
-  <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile" Condition="!Exists($(ESLintConfigLombiqTargetPath))">
+  <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile">
     <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
   </Target>
 
