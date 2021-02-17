@@ -45,5 +45,32 @@
   <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile">
     <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
   </Target>
+
+  <Import
+    Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets')"
+    Project="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets"/>
   
+  <Target
+    Name="EslintWarningTarget"
+    AfterTargets="NpmDotnetPrebuild"
+    BeforeTargets="BeforeBuild">
+    <Warning
+      Code="ESL02"
+      Text="ESLint error in Gulp process, check the build output for more information."
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PreBuildProperty)', 'not ok'))" />
+    <Warning
+      Code="ESL03"
+      Text="ESLint error in Gulp process, check the build output for more information."
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
+    <Warning
+      Code="ESL04"
+      Text="ESLint error in Gulp process, check the build output for more information."
+      Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets')" />
+    <Warning
+      Code="ESL05"
+      Text="ESLint error in Gulp process, check the build output for more information."
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PreBuildProperty)', ''))" />
+  </Target>
+  
+
 </Project>
