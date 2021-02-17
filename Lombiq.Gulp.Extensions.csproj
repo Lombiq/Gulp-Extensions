@@ -10,6 +10,10 @@
     <None Remove="node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
@@ -40,22 +44,6 @@
 
   <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile">
     <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
-  </Target>
-
-  <Import Project="../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets"/>
-  
-  <Target
-    Name="EslintWarningTarget"
-    AfterTargets="NpmDotnetPrebuild"
-    BeforeTargets="EmbeddModuleAssets;BeforeBuild">
-    <Warning
-        Code="ESL02"
-        Text="ESLint error in Gulp process, check the build output for more information."
-        Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
-    <Warning
-        Code="ESL03"
-        Text="TEST"
-        Condition="true" />
   </Target>
   
 </Project>
