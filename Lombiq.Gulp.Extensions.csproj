@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -42,4 +42,20 @@
     <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
   </Target>
 
+  <Import Project="../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets"/>
+  
+  <Target
+    Name="EslintWarningTarget"
+    AfterTargets="NpmDotnetPrebuild"
+    BeforeTargets="EmbeddModuleAssets;BeforeBuild">
+    <Warning
+        Code="ESL02"
+        Text="ESLint error in Gulp process, check the build output for more information."
+        Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
+    <Warning
+        Code="ESL03"
+        Text="TEST"
+        Condition="true" />
+  </Target>
+  
 </Project>
