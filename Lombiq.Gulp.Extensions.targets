@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target
+    Name="EslintWarningTarget"
+    AfterTargets="NpmDotnetPrebuild"
+    BeforeTargets="BeforeBuild">
+    <Warning
+      Code="ESL01"
+      Text="ESLint error/warning in Gulp process, check the build output for more information."
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
+  </Target>
+
+</Project>

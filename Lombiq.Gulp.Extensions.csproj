@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -44,28 +44,6 @@
 
   <Target Name="CopyEslintLombiqFile" BeforeTargets="CopyEslintBaseFile">
     <Copy SourceFiles="ESLint/lombiq-base.js" DestinationFolder="../.." />
-  </Target>
-
-  <Import
-    Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets')"
-    Project="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets"/>
-  <!--Probably unnecessary-->
-  <Import
-    Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.props')"
-    Project="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props"/>
-
-  <Target
-    Name="EslintWarningTarget"
-    AfterTargets="NpmDotnetPrebuild"
-    BeforeTargets="BeforeBuild">
-    <Warning
-      Code="ESL42"
-      Text="Not ok found :)"
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
-    <Warning
-      Code="ESL70"
-      Text="Empty found >:("
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', ''))" />
   </Target>
 
 </Project>
