@@ -49,28 +49,23 @@
   <Import
     Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets')"
     Project="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets"/>
-  
+  <!--Probably unnecessary-->
+  <Import
+    Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.props')"
+    Project="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props"/>
+
   <Target
     Name="EslintWarningTarget"
     AfterTargets="NpmDotnetPrebuild"
     BeforeTargets="BeforeBuild">
     <Warning
-      Code="ESL02"
-      Text="ESLint error in Gulp process, check the build output for more information."
+      Code="ESL42"
+      Text="Not ok found :)"
       Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
     <Warning
-      Code="ESL03"
-      Text="ESLint error in Gulp process, check the build output for more information."
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
-    <Warning
-      Code="ESL04"
-      Text="ESLint error in Gulp process, check the build output for more information."
-      Condition="Exists('../Lombiq.Npm.Targets/Lombiq.Npm.Targets.targets')" />
-    <Warning
-      Code="ESL05"
-      Text="ESLint error in Gulp process, check the build output for more information."
+      Code="ESL70"
+      Text="Empty found >:("
       Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', ''))" />
   </Target>
-  
 
 </Project>
