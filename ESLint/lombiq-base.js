@@ -6,7 +6,7 @@ module.exports = {
     'rules': {
         // Lombiq rules
         'max-len': [
-            'warning',
+            'warn',
             120,
             2,
             {
@@ -19,7 +19,7 @@ module.exports = {
         ],
 
         'brace-style': [
-            'warning',
+            'warn',
             'stroustrup',
             { 'allowSingleLine': true }
         ],
@@ -27,27 +27,27 @@ module.exports = {
         'prefer-template': 'off',
 
         'no-plusplus': [
-            'warning',
+            'warn',
             { 'allowForLoopAfterthoughts': true }
         ],
 
-        'linebreak-style': ['warning', 'windows'],
+        'linebreak-style': ['warn', 'windows'],
 
         'no-param-reassign': [
-            'warning',
+            'warn',
             {
                 'props': false
             }
         ],
 
         'wrap-iife': [
-            'warning',
+            'warn',
             'any', // outside originally
             { 'functionPrototypeMethods': false }
         ],
 
         'prefer-arrow-callback': [
-            'warning',
+            'warn',
             {
                 'allowNamedFunctions': true, // false originally
                 'allowUnboundThis': true
@@ -55,14 +55,14 @@ module.exports = {
         ],
 
         'no-underscore-dangle': [
-            'warning',
+            'warn',
             {
                 'allowAfterThis': true
             }
         ],
 
         'no-restricted-syntax': [
-            'warning',
+            'warn',
             {
                 'selector': 'ForOfStatement',
                 'message': 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide (https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js) to allow them. Separately, loops should be avoided in favor of array iterations.'
@@ -78,7 +78,7 @@ module.exports = {
         ],
 
         'no-unused-expressions': [
-            'warning',
+            'warn',
             {
                 'allowShortCircuit': true,
                 'allowTernary': false,
@@ -87,7 +87,7 @@ module.exports = {
         ],
 
         'operator-linebreak': [
-            'warning',
+            'warn',
             'after',
             {
                 'overrides': {
@@ -99,17 +99,17 @@ module.exports = {
         ],
 
         'no-else-return': [
-            'warning',
+            'warn',
             { 'allowElseIf': true }
         ],
 
         'object-shorthand': [
-            'warning',
+            'warn',
             'consistent-as-needed'
         ],
 
         'prefer-destructuring': [
-            'warning',
+            'warn',
             {
                 'VariableDeclarator': {
                     'array': false,
@@ -126,7 +126,7 @@ module.exports = {
         ],
 
         'indent': [
-            'warning',
+            'warn',
             4,
             {
                 'SwitchCase': 1,
@@ -154,13 +154,13 @@ module.exports = {
             }
         ],
 
-        'func-names': ['warning', 'as-needed'],
+        'func-names': ['warn', 'as-needed'],
 
         'no-alert': 'off',
 
         'function-paren-newline': ['off', 'consistent'],
 
-        'comma-dangle': ['warning', {
+        'comma-dangle': ['warn', {
             arrays: 'always-multiline',
             objects: 'always-multiline',
             imports: 'always-multiline',
@@ -168,6 +168,6 @@ module.exports = {
             functions: 'never',
         }],
 
-        'function-call-argument-newline': ['warning', 'consistent'],
+        'function-call-argument-newline': ['warn', 'consistent'],
     }
 }
