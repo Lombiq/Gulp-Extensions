@@ -57,7 +57,7 @@
     <Warning
       Code="ESL02"
       Text="ESLint error in Gulp process, check the build output for more information."
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PreBuildProperty)', 'not ok'))" />
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
     <Warning
       Code="ESL03"
       Text="ESLint error in Gulp process, check the build output for more information."
@@ -69,7 +69,7 @@
     <Warning
       Code="ESL05"
       Text="ESLint error in Gulp process, check the build output for more information."
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PreBuildProperty)', ''))" />
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', ''))" />
   </Target>
   
 
