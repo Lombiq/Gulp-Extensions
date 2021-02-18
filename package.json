@@ -9,6 +9,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-webpack-plugin": "^2.5.1",
     "gulp": "4.0.2",
     "gulp-all": "1.1.0",
     "gulp-babel": "^8.0.0",
