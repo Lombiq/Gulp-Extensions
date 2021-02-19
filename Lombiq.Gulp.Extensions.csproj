@@ -10,10 +10,6 @@
     <None Remove="node_modules\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Lombiq.Npm.Targets\Lombiq.Npm.Targets.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
