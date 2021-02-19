@@ -2,7 +2,7 @@
     "extends": "./lombiq-base.js",
 
     "rules": {
-        // Add overriding rules here
+        // Add overriding rules here like this:
         // "example-rule" : "error"
     }
 }
