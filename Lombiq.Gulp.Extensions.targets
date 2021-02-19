@@ -7,7 +7,7 @@
     <Warning
       Code="ESL01"
       Text="ESLint error/warning in Gulp process, check the build output for more information."
-      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'not ok'))" />
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'severity: warning'))" />
   </Target>
 
 </Project>
