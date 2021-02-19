@@ -67,18 +67,30 @@ Usage:
 const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
 const path = './Assets/Scripts/'
-
 const destination = './directory-to-copy-into'
 
 gulp.task('build:js', () => jsTargets.compile(path, destination));
 ```
-The build output or task runner will show you a list of all the ESLint rule violations.
 
-The base rules for the linter are found in the *eslint-base.js* and the *lombiq-base.js* files, you can add your own rules in the `.eslintrc` file overriding these base rules.
+The rules are found in 3 files:
+- *eslint-base.js* these rules come from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+- *lombiq-base.js* these rules are Lombiq overrides for the Airbnb rules.
+- *.eslintrc* in this file you can define your own overriding rules
 
-These base rules are from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). The rules in the *eslint-base.js* file are from [these files](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules) in the Style Guide. You can update it by copying and pasting the new rules from the Airbnb repo.
+Rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
 
-The rules in *lombiq-base.js* come from Lombiq's overriding rules.
+The build output or task runner will show you a all the ESLint rule violations in a detailed manner.
+
+If you want to integrate ESLint into MSBuild you need to include Lombiq's [NPM-Targets](https://github.com/Lombiq/NPM-Targets) too.
+In the project ESLint needs use, you need to import these files in the `.csproj` file:
+```
+<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
+<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
+<Import Project="path\to\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets"/>
+```
+Then a warning will be sent to the error list if ESLint finds a rule violation.
+
+If you want to use [Visual Studio's built in ESLint](https://www.technipages.com/visual-studio-enable-disable-eslint) aswell, after the first build of Gulp Extensions, the built in ESLint will use the rules found in this extension.
 
 
 ## Contributing and support
