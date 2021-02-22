@@ -97,7 +97,7 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you want to use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) as well, after the first build of Gulp Extensions, the built-in ESLint will use the rules found in this extension.
+If you want to use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) to get ESLint errors and warnings in real time, after the first build of Gulp Extensions, the built-in ESLint will use the rules found in this extension.
 
 
 ## Contributing and support
