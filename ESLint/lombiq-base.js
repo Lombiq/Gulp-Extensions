@@ -1,6 +1,17 @@
 /* eslint-disable */
+const airbnbBasePath = './Airbnb-javascript/packages/eslint-config-airbnb-base/rules/';
+
 module.exports = {
-    'extends': './eslint-base.js',
+    'extends': [
+        airbnbBasePath + 'best-practices.js',
+        airbnbBasePath + 'errors.js',
+        airbnbBasePath + 'node.js',
+        airbnbBasePath + 'style.js',
+        airbnbBasePath + 'variables.js',
+        airbnbBasePath + 'es6.js',
+        airbnbBasePath + 'imports.js',
+        airbnbBasePath + 'strict.js',
+    ],
 
     // Here we can define our own rules overriding the base rules
     'rules': {
