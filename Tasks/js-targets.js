@@ -14,7 +14,7 @@ function compile(source, destination) {
 }
 
 function clean(destination) {
-    // eslint throws a false error here
+    // ESLint throws a false error here.
     return async () => await del(destination + '**/*.js');
 }
 
