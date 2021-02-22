@@ -73,9 +73,9 @@ gulp.task('build:js', () => jsTargets.compile(path, destination));
 ```
 
 The rules are found in 3 files:
-- *eslint-base.js* these rules come from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
-- *lombiq-base.js* these rules are Lombiq overrides for the Airbnb rules.
-- *.eslintrc* in this file you can define your own overriding rules
+- *eslint-base.js*: These rules come from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+- *lombiq-base.js*: These rules are Lombiq overrides for the Airbnb rules.
+- *.eslintrc*: In this file you can define your own overriding rules.
 
 Since these files will be copied int your solution's root you may want to gitignore it:
 ```
