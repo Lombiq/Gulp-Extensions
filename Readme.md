@@ -86,9 +86,9 @@ Since these files will be copied int your solution's root you may want to gitign
 
 Rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
 
-The build output or task runner will show you all of the ESLint rule violations in a detailed manner.
+The MSBuild output or task runner will show you all of the ESLint rule violations in a detailed manner.
 
-If you want to integrate ESLint into MSBuild you need to include Lombiq's [NPM-Targets](https://github.com/Lombiq/NPM-Targets) too.
+If you want to integrate ESLint into MSBuild you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too.
 In the project ESLint needs use, you need to import these files in the `.csproj` file:
 ```
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
@@ -97,7 +97,7 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you want to use [Visual Studio's built in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) aswell, after the first build of Gulp Extensions, the built in ESLint will use the rules found in this extension.
+If you want to use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) as well, after the first build of Gulp Extensions, the built-in ESLint will use the rules found in this extension.
 
 
 ## Contributing and support
