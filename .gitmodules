@@ -1,0 +1,4 @@
+[submodule "javascript"]
+	path = javascript
+	url = git@github.com:Lombiq/javascript.git
+	branch = master
