@@ -6,7 +6,11 @@
     BeforeTargets="BeforeBuild">
     <Warning
       Code="ESL01"
-      Text="ESLint error/warning in Gulp process, check the build output for more information."
+      Text="ESLint error in Gulp process, check the build output for more information."
+      Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'severity: error'))" />
+    <Warning
+      Code="ESL02"
+      Text="ESLint warning in Gulp process, check the build output for more information."
       Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(PrebuildOutput)', 'severity: warning'))" />
   </Target>
 
