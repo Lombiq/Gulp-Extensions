@@ -14,21 +14,27 @@ const del = require('del');
 
 sass.compiler = nodeSass;
 
-const defaultCompatibleBrowsers = ['last 1 Chrome version', 'last 1 Edge version', 'last 1 Firefox version', 'last 1 IE version', 'last 1 iOS version'];
+const defaultCompatibleBrowsers = [
+    'last 1 Chrome version',
+    'last 1 Edge version',
+    'last 1 Firefox version',
+    'last 1 IE version',
+    'last 1 iOS version'];
 
 function compile(source, destination, compatibleBrowsers) {
-    destination = destination ? destination : source;
-    compatibleBrowsers = compatibleBrowsers ? compatibleBrowsers : defaultCompatibleBrowsers;
+    const compileDestination = destination || source;
+    const browsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
     return gulp.src(source + '**/*.scss')
         .pipe(cache('scss'))
         .pipe(plumber())
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ linefeed: 'crlf' })).on('error', sass.logError)
-        .pipe(postcss([autoprefixer({ overrideBrowserslist: compatibleBrowsers })]))
+        .pipe(sass({ linefeed: 'crlf' }))
+            .on('error', sass.logError) // eslint-disable-line indent
+        .pipe(postcss([autoprefixer({ overrideBrowserslist: browsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
-        .pipe(gulp.dest(destination));
-};
+        .pipe(gulp.dest(compileDestination));
+}
 
 function minify(destination) {
     return gulp.src([destination + '**/*.css', '!' + destination + '**/*.min.css'])
@@ -36,20 +42,23 @@ function minify(destination) {
         .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(destination));
-};
-
-function clean(destination) {
-    // ESLint throws a false error here.
-    return async () => await del([destination + '**/*.css', destination + '**/*.css.map']); 
 }
 
-function build(source, destination, compatibleBrowsers) {
-    destination = destination ? destination : source;
-    compatibleBrowsers = compatibleBrowsers ? compatibleBrowsers : defaultCompatibleBrowsers;
+async function clean(destination) {
+    const cleanFunction = await del([destination + '**/*.css', destination + '**/*.css.map']);
+    return cleanFunction;
+}
 
-    return gulp.series(
-        async () => await new Promise((resolve) => compile(source, destination, compatibleBrowsers).on('end', resolve)),
-        async () => await new Promise((resolve) => minify(destination).on('end', resolve)));
+async function build(source, destination, compatibleBrowsers) {
+    const buildDestination = destination || source;
+    const browsers = compatibleBrowsers || defaultCompatibleBrowsers;
+
+    const buildCompile = await new Promise((resolve) => compile(source, buildDestination, browsers).on('end', resolve));
+    const buildMinify = await new Promise((resolve) => minify(buildDestination).on('end', resolve));
+
+    return gulp.series(buildCompile, buildMinify);
+}
+
+module.exports = {
+    build, compile, minify, clean,
 };
-
-module.exports = { build, compile, minify, clean };
