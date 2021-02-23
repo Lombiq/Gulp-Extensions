@@ -13,9 +13,9 @@ function compile(source, destination) {
         .pipe(gulp.dest(copyDestination));
 }
 
-async function clean(destination) {
-    const cleanFunc = await del(destination + '**/*.js');
-    return cleanFunc;
+function clean(destination) {
+    // ESLint throws a false error here.
+    return async () => await del(destination + '**/*.js');
 }
 
 module.exports = { compile, clean };
