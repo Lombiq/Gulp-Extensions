@@ -72,9 +72,8 @@ const destination = './directory-to-copy-into'
 gulp.task('build:js', () => jsTargets.compile(path, destination));
 ```
 
-The rules are found in 3 files:
-- *eslint-base.js*: These rules come from the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
-- *lombiq-base.js*: These rules are Lombiq overrides for the Airbnb rules.
+The rules are found in 2 files:
+- *lombiq-base.js*: These rules are Lombiq overrides for the extended [Airbnb rules](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules).
 - *.eslintrc*: In this file you can define your own overriding rules.
 
 Rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
