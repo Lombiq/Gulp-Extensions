@@ -77,13 +77,6 @@ The rules are found in 3 files:
 - *lombiq-base.js*: These rules are Lombiq overrides for the Airbnb rules.
 - *.eslintrc*: In this file you can define your own overriding rules.
 
-Since these files will be copied int your solution's root you may want to gitignore it:
-```
-/src/.eslintrc
-/src/eslint-base.js
-/src/lombiq-base.js
-```
-
 Rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
 
 The MSBuild output or task runner will show you all of the ESLint rule violations in a detailed manner.
