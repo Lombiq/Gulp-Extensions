@@ -7,6 +7,10 @@ module.exports = {
         'browser': true,
     },
 
+    'plugins': [
+        'only-warn'
+    ],
+
     // Here we can define our own rules overriding the base rules
     'rules': {
         // Lombiq rules
