@@ -1,6 +1,11 @@
 /* eslint-disable */
 module.exports = {
-    'extends': './eslint-base.js',
+    'extends': 'airbnb-base',
+
+    'env': {
+        'jquery': true,
+        'browser': true,
+    },
 
     // Here we can define our own rules overriding the base rules
     'rules': {
@@ -169,5 +174,7 @@ module.exports = {
         }],
 
         'function-call-argument-newline': ['warn', 'consistent'],
+
+        'strict' : ['warn', 'safe']
     }
 }
