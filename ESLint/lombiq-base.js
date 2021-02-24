@@ -179,6 +179,8 @@ module.exports = {
 
         'function-call-argument-newline': ['warn', 'consistent'],
 
-        'strict' : ['warn', 'safe']
+        'strict': ['warn', 'safe'],
+
+        'import/no-extraneous-dependencies' : 'off'
     }
 }
