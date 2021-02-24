@@ -12,7 +12,7 @@ function compile(source, destination) {
 }
 
 function clean(destination) {
-    // Needs to be returned as is
+    // Needs to be returned as is.
     return async () => await del(destination + '**/*.js'); // eslint-disable-line no-return-await
 }
 
