@@ -1,5 +1,5 @@
-'use strict';
-
+/* eslint-disable import/no-extraneous-dependencies */
+// As this is not a pure JS project, this style of dependencies are used
 const gulp = require('gulp');
 const del = require('del');
 const eslint = require('gulp-eslint');
@@ -14,8 +14,8 @@ function compile(source, destination) {
 }
 
 function clean(destination) {
-    // ESLint throws a false error here.
-    return async () => await del(destination + '**/*.js');
+    // Needs to be returned as is
+    return async () => await del(destination + '**/*.js'); // eslint-disable-line no-return-await
 }
 
 module.exports = { compile, clean };
