@@ -6,7 +6,7 @@
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
 
-When adding this project to the solution it will initialize a _node_modules_ folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other _package.json_ files. This way it makes it possible to keep the _package.json_ files light (e.g. adding _gulp_ node module won't be necessary).
+When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` node module won't be necessary).
 
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
@@ -17,7 +17,7 @@ Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) librar
 
 This helper compiles and minifies the given scss files and copies the output to the given folder. 
 
-Import the _Tasks/build-scss.js_ file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+Import the *Tasks/build-scss.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 
 Usage:
 
@@ -31,7 +31,7 @@ gulp.task('build:styles', () => buildScss('./Assets/scss/**/*.scss', './wwwroot/
 
 This helper makes it possible to copy one or multiple assets to a destination folder. 
 
-Import the _Tasks/copy-assets.js_ file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+Import the *Tasks/copy-assets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 
 Input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be copied.
 
@@ -57,9 +57,9 @@ gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 
 This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (**ESLint**) on it.
 
-You have to copy `.eslintrc` to the root folder of your solution, and specify `lombiq-base.js`'s location inside as described in the file.
+You have to copy *.eslintrc* to the root folder of your solution, and specify *lombiq-base.js*'s location inside as described in the file.
 
-Import the _Tasks/js-targets.js_ file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 
 Input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be code analyzed and copied.
 
@@ -90,7 +90,7 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) It will recognize the rules after the copying of `.eslintrc` as mentioned above.
+If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above.
 
 
 ## Contributing and support
