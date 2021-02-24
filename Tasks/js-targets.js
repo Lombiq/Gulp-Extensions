@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// As this is not a pure JS project, this style of dependencies are used
 const gulp = require('gulp');
 const del = require('del');
 const eslint = require('gulp-eslint');
