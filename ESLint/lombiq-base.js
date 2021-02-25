@@ -181,6 +181,8 @@ module.exports = {
 
         'strict': ['warn', 'safe'],
 
-        'import/no-extraneous-dependencies' : 'off'
+        'import/no-extraneous-dependencies': 'off',
+
+        'import/no-cycle': ['error', {'maxDepth': 9999}]
     }
 }
