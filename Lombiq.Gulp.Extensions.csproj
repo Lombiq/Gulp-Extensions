@@ -30,4 +30,8 @@
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
+  <Target Name="CopyVsEslintPackage" AfterTargets="InitCommonNodeModules">
+    <Copy SourceFiles="ESLint/vs-eslint-package.json" DestinationFiles="$(SolutionDir)/package.json" />
+  </Target>
+
 </Project>
