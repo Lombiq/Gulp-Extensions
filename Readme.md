@@ -33,7 +33,7 @@ This helper makes it possible to copy one or multiple assets to a destination fo
 
 Import the *Tasks/copy-assets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 
-Input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be copied.
+The first input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be copied.
 
 Usage:
 
@@ -50,39 +50,49 @@ const assets = [
         path: './Assets/images/**/*'
     }
 ]
+
 gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
 
 ### JS Targets (ESLint)
 
-This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (**ESLint**) on it.
+This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (ESLint) on it. You can use it as following:
 
-You have to copy *example.eslintrc* to the root folder of your solution and rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file.
+1. Copy *example.eslintrc* to the root folder of your solution and rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file.
+2. Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.sjon* to make this work; gitignore it in your repository along the lines of:
 
-Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+    ```
+    /src/package.json
+    ```
 
-Input parameter is an array of objects where it is possible to specify the source and destination of each assets. Each object should have a `name` property which will be the name of the subfolder created in the destination, and a `path` property which defines one or more files that need to be code analyzed and copied.
+#### Configuring the Gulp task
+
+The input parameters are `string`s of the source and destination folders containing scripts that need to be analyzed and copied.
 
 Usage:
 ```
 const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
-const path = './Assets/Scripts/'
+const source = './Assets/Scripts/'
 const destination = './directory-to-copy-into'
 
-gulp.task('build:js', () => jsTargets.compile(path, destination));
+gulp.task('build:js', () => jsTargets.compile(source, destination));
 ```
+
+#### ESlint rules
 
 The rules are found in 2 files:
 - *lombiq-base.js*: These rules are Lombiq overrides for the extended [Airbnb rules](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules).
 - *.eslintrc*: In this file you can define your own overriding rules.
 
-Rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
+Details on rules can be found in the [ESLint documentation](https://eslint.org/docs/rules/).
 
-The MSBuild output or task runner will show you all of the ESLint rule violations in a detailed manner.
+The MSBuild output or the Gulp task runner will show you all of the ESLint rule violations in a detailed manner.
 
-If you want to integrate ESLint into MSBuild you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too.
-In the project ESLint needs use, you need to import these files in the `.csproj` file:
+#### Integrating with MSBuild
+
+If you want to integrate ESLint into MSBuild builds you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. In the project ESLint needs use, you need to import these files in the `.csproj` file:
 ```
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
@@ -90,11 +100,7 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory to make this work; gitignore it in your repository along the lines of:
 
-```
-/src/package.json
-```
 
 ## Contributing and support
 
