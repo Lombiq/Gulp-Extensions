@@ -94,6 +94,8 @@ If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/vi
 
 *vs-eslint-package.json* is copied into your solution directory to make [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) work with this version of ESLint.
 
+If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
+
 
 ## Contributing and support
 
