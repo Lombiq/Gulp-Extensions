@@ -31,7 +31,7 @@
   </Target>
 
   <Target Name="CopyVsEslintPackage" AfterTargets="InitCommonNodeModules">
-    <Copy SourceFiles="ESLint/vs-eslint-package.json" DestinationFiles="$(SolutionDir)/package.json" />
+    <Copy SourceFiles="ESLint/vs-eslint-package.json" DestinationFiles="../../package.json" />
   </Target>
 
 </Project>
