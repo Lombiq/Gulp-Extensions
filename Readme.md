@@ -90,7 +90,7 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above.
+If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) copy *VSESLINTpackage.json* to the root folder of your solution and rename it *package.json*, it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above.
 
 
 ## Contributing and support
