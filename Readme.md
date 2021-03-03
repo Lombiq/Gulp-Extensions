@@ -90,14 +90,12 @@ In the project ESLint needs use, you need to import these files in the `.csproj`
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
-If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above.
-
-*vs-eslint-package.json* is copied into your solution directory to make [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) work with this version of ESLint.
-
-If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
+If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory to make this work.
 
 
 ## Contributing and support
+
+If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
