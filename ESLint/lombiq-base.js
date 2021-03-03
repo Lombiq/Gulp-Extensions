@@ -182,9 +182,5 @@ module.exports = {
         'strict': ['warn', 'safe'],
 
         'import/no-extraneous-dependencies': 'off',
-
-        // This rule uses '∞' as default, which somehow throws an error for us, so making it a big number.
-        // If eslint-plugin-import is updated above ^2.22.1 remove this and check if it still persists.
-        'import/no-cycle': ['error', {'maxDepth': 9999}]
     }
 }
