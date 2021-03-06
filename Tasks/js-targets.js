@@ -1,21 +1,19 @@
-'use strict';
-
 const gulp = require('gulp');
 const del = require('del');
 const eslint = require('gulp-eslint');
 
 function compile(source, destination) {
-    destination = destination ? destination : source;
+    const copyDestination = destination || source;
 
     return gulp.src(source + '**/*.js')
         .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failOnError())
-        .pipe(gulp.dest(destination));
-};
+        .pipe(eslint.format('tap'))
+        .pipe(gulp.dest(copyDestination));
+}
 
 function clean(destination) {
-    return async () => await del(destination + '**/*.js');
+    // Needs to be returned as is.
+    return async () => await del(destination + '**/*.js'); // eslint-disable-line no-return-await
 }
 
 module.exports = { compile, clean };

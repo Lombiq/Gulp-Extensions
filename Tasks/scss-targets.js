@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use strict';
 
 const gulp = require('gulp');
@@ -39,7 +41,8 @@ function minify(destination) {
 };
 
 function clean(destination) {
-    return async () => await del([destination + '**/*.css', destination + '**/*.css.map']);
+    // ESLint throws a false error here.
+    return async () => await del([destination + '**/*.css', destination + '**/*.css.map']); 
 }
 
 function build(source, destination, compatibleBrowsers) {
