@@ -1,7 +1,3 @@
-/* eslint-disable */
-
-'use strict';
-
 const gulp = require('gulp');
 const all = require('gulp-all');
 
