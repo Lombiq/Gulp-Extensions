@@ -43,7 +43,7 @@ function minify(destination) {
 }
 
 function clean(destination) {
-    return async () => await del([destination + '**/*.css', destination + '**/*.css.map']);
+    return () => del([destination + '**/*.css', destination + '**/*.css.map']);
 }
 
 function build(source, destination, compatibleBrowsers) {
@@ -51,9 +51,9 @@ function build(source, destination, compatibleBrowsers) {
     const buildCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
     return gulp.series(
-        async () => await new Promise((resolve) => compile(source, buildDestination, buildCompatibleBrowsers)
+        () => new Promise((resolve) => compile(source, buildDestination, buildCompatibleBrowsers)
             .on('end', resolve)),
-        async () => await new Promise((resolve) => minify(buildDestination).on('end', resolve)));
+        () => new Promise((resolve) => minify(buildDestination).on('end', resolve)));
 }
 
 module.exports = {

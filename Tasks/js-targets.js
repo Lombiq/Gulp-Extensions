@@ -12,7 +12,7 @@ function compile(source, destination) {
 }
 
 function clean(destination) {
-    return async () => await del(destination + '**/*.js');
+    return () => del(destination + '**/*.js');
 }
 
 module.exports = { compile, clean };
