@@ -43,8 +43,6 @@ function minify(destination) {
 }
 
 function clean(destination) {
-    // Needs to be returned as is.
-    // eslint-disable-next-line no-return-await
     return async () => await del([destination + '**/*.css', destination + '**/*.css.map']);
 }
 
@@ -53,10 +51,8 @@ function build(source, destination, compatibleBrowsers) {
     const buildCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
     return gulp.series(
-        // eslint-disable-next-line no-return-await
         async () => await new Promise((resolve) => compile(source, buildDestination, buildCompatibleBrowsers)
             .on('end', resolve)),
-        // eslint-disable-next-line no-return-await
         async () => await new Promise((resolve) => minify(buildDestination).on('end', resolve)));
 }
 
