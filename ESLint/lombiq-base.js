@@ -182,5 +182,7 @@ module.exports = {
         'strict': ['warn', 'safe'],
 
         'import/no-extraneous-dependencies': 'off',
+
+        'no-return-await' : 'off',
     }
 }
