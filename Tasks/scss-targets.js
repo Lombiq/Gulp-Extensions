@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const cache = require('gulp-cached');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
-const nodeSass = require('node-sass');
+const dartSass = require('sass');
 const rename = require('gulp-rename');
 const cleanCss = require('gulp-clean-css');
 const postcss = require('gulp-postcss');
@@ -10,7 +10,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
 
-sass.compiler = nodeSass;
+sass.compiler = dartSass;
 
 const defaultCompatibleBrowsers = [
     'last 1 Chrome version',
