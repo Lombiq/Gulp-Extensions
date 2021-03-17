@@ -13,7 +13,7 @@
   <ItemGroup>
     <None Remove="node_modules\**" />
   </ItemGroup>
-  
+
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>$(SafeSolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
