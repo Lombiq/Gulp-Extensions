@@ -4,6 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
     <IsPublishable>false</IsPublishable>
+    <!-- The project should be possible to build alone, without a solution too. Also, it shouldn't override
+    SolutionDir for other targets. -->
+    <SafeSolutionDir>$(SolutionDir)</SafeSolutionDir>
+    <SafeSolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SafeSolutionDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +15,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <InitCommonNodeModulesStampFile>../../node_modules/.install-stamp</InitCommonNodeModulesStampFile>
+    <InitCommonNodeModulesStampFile>$(SafeSolutionDir)node_modules\.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
   </PropertyGroup>
 
@@ -26,7 +30,10 @@
   <Target Name="InitCommonNodeModules" BeforeTargets="ResolveReferences" Inputs="package.json" Outputs="$(InitCommonNodeModulesStampFile)">
     <Exec Command="npm install" />
     <RemoveDir Directories="../../node_modules" Condition="Exists('node_modules') and Exists('../../node_modules')" />
-    <Exec Command="move node_modules ../.." Condition="Exists('node_modules')" />
+    <!-- Using move command as the Move task did not complete correctly during testing in a Linux-based build pipeline.
+    -->
+    <Exec Command="move node_modules $(SafeSolutionDir)" Condition="'$(OS)' == 'Windows_NT' AND Exists('node_modules')" />
+    <Exec Command="mv node_modules $(SafeSolutionDir)" Condition="'$(OS)' != 'Windows_NT' AND Exists('node_modules')" />
     <Touch Files="$(InitCommonNodeModulesStampFile)" AlwaysCreate="true" />
   </Target>
 
