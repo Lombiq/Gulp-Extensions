@@ -1,10 +1,10 @@
 // Copy this file to the root directory and modify <path-to>
 
 {
-    "extends": "<path-to>/lombiq-base.js",
+  "extends": "<path-to>/lombiq-base.js",
 
-    "rules": {
-        // Add overriding rules here like this:
-        // "example-rule" : "error"
-    }
+  "rules": {
+    // Add overriding rules here like this:
+    // "example-rule" : "error"
+  }
 }
