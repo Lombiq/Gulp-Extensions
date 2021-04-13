@@ -6,7 +6,7 @@
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
 
-When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` node module won't be necessary).
+When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` Node module won't be necessary) by using a single, common *node_modules* folder (see [the Node docs](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)).
 
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
