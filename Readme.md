@@ -102,6 +102,8 @@ If you want to integrate ESLint into MSBuild builds you need to include Lombiq's
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
+**Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
+
 
 
 ## Contributing and support
