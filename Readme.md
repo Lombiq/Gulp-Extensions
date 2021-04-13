@@ -22,9 +22,9 @@ Import the *Tasks/build-scss.js* file in your Gulpfile then create a Gulp task t
 Usage:
 
 ```
-const buildScss = require('path/to/Lombiq.Gulp.Extensions/Tasks/build-scss');
+const scssTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/scss-targets');
 
-gulp.task('build:styles', () => buildScss('./Assets/scss/**/*.scss', './wwwroot/'));
+gulp.task('build:styles', () => scssTargets('./Assets/Styles/**/*.scss', './wwwroot/'));
 ```
 
 ### Copy assets
