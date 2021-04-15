@@ -77,11 +77,11 @@ const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 const source = './Assets/Scripts/'
 const destination = './wwwroot/js'
 
-gulp.task('build:js', () => jsTargets.compile(source, destination));
+gulp.task('build:scripts', () => jsTargets.compile(source, destination));
 
 // Or you can pass a function to modify the pipeline before saving the files and e.g. run Babel:
 gulp.task(
-    'build:js',
+    'build:scripts',
     () => jsTargets.compile(source, destination, (pipeline) => pipeline.pipe(babel({ presets: ['@babel/preset-env'] }))));
 ```
 
