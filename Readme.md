@@ -11,7 +11,7 @@ When adding this project to the solution it will initialize a *node_modules* fol
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
 
-## Includes:
+## Included Gulp tasks
 
 ### SCSS build
 
@@ -109,6 +109,45 @@ Then a warning will be sent to the error list if ESLint finds a rule violation.
 
 **Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
 
+
+## Tips for using and naming multiple Gulp tasks
+
+It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
+
+```js
+const gulp = require('gulp');
+const watch = require('gulp-watch');
+const babel = require('gulp-babel');
+const scssTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/scss-targets');
+const jsTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/js-targets');
+
+const assetsBasePath = './Assets/';
+const distBasePath = './wwwroot/';
+const stylesBasePath = assetsBasePath + 'Styles/';
+const stylesDistBasePath = distBasePath + 'css/';
+const scriptsBasePath = assetsBasePath + 'Scripts/';
+const scriptsDistBasePath = distBasePath + 'js/';
+
+gulp.task('build:styles', scssTargets.build(stylesBasePath, stylesDistBasePath));
+gulp.task('clean:styles', scssTargets.clean(stylesDistBasePath));
+
+gulp.task(
+    'build:scripts',
+    () => jsTargets.compile(
+        scriptsBasePath, scriptsDistBasePath, (pipeline) => pipeline.pipe(babel({ presets: ['@babel/preset-env'] }))));
+
+gulp.task('clean:scripts', jsTargets.clean(scriptsDistBasePath));
+
+gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts'));
+
+gulp.task('default', gulp.parallel('build:styles', 'build:scripts'));
+
+gulp.task('watch', () => {
+    watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles'));
+    watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts'));
+});
+
+```
 
 
 ## Contributing and support
