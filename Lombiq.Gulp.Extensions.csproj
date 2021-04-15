@@ -13,7 +13,7 @@
   <!-- Note how the paths are hard-coded as two folders up (as documented in the Readme) and not using $(SolutionDir)
     or something. This is because the project should be possible to build alone, without a solution too, and should
     still work if after that it's also built as part of a solution.	-->
-	
+  
   <PropertyGroup>
     <InitCommonNodeModulesStampFile>..\..\node_modules\.install-stamp</InitCommonNodeModulesStampFile>
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
