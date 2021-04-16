@@ -2,13 +2,18 @@ const gulp = require('gulp');
 const del = require('del');
 const eslint = require('gulp-eslint');
 
-function compile(source, destination) {
+function compile(source, destination, pipelineModifier) {
     const copyDestination = destination || source;
 
-    return gulp.src(source + '**/*.js')
+    let pipeline = gulp.src(source + '**/*.js')
         .pipe(eslint())
-        .pipe(eslint.format('tap'))
-        .pipe(gulp.dest(copyDestination));
+        .pipe(eslint.format('tap'));
+
+    if (typeof pipelineModifier === 'function') {
+        pipeline = pipelineModifier(pipeline);
+    }
+
+    return pipeline.pipe(gulp.dest(copyDestination));
 }
 
 function clean(destination) {

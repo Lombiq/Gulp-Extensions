@@ -1,16 +1,13 @@
 const gulp = require('gulp');
 const cache = require('gulp-cached');
 const plumber = require('gulp-plumber');
-const sass = require('gulp-sass');
-const dartSass = require('sass');
+const sass = require('gulp-dart-sass');
 const rename = require('gulp-rename');
 const cleanCss = require('gulp-clean-css');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
-
-sass.compiler = dartSass;
 
 const defaultCompatibleBrowsers = [
     'last 1 Chrome version',
@@ -27,8 +24,7 @@ function compile(source, destination, compatibleBrowsers) {
         .pipe(cache('scss'))
         .pipe(plumber())
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ linefeed: 'crlf' }))
-        .on('error', sass.logError)
+        .pipe(sass({ linefeed: 'crlf' }).on('error', sass.logError))
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
         .pipe(gulp.dest(compileDestination));
