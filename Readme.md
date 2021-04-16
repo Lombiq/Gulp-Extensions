@@ -17,7 +17,7 @@ Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) librar
 
 This helper compiles and minifies the given scss files and copies the output to the given folder. 
 
-Import the *Tasks/scss-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+Import the *Tasks/scss-targets.js* file in your Gulpfile, then create a Gulp task that uses this helper as a pipeline.
 
 Usage:
 
