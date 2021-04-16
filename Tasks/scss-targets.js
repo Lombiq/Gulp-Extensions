@@ -25,7 +25,6 @@ function compile(source, destination, compatibleBrowsers) {
         .pipe(plumber())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sass({ linefeed: 'crlf' }).on('error', sass.logError))
-        .on('error', sass.logError)
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
         .pipe(gulp.dest(compileDestination));
