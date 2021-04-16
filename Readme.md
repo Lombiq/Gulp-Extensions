@@ -112,7 +112,7 @@ Then a warning will be sent to the error list if ESLint finds a rule violation.
 
 ## Tips for using and naming multiple Gulp tasks
 
-It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
+It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development, we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
 
 ```js
 const gulp = require('gulp');
