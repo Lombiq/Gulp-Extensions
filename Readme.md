@@ -6,25 +6,25 @@
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
 
-When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` node module won't be necessary).
+When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` Node module won't be necessary) by using a single, common *node_modules* folder (see [the Node docs](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)).
 
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
 
-## Includes:
+## Included Gulp tasks
 
 ### SCSS build
 
 This helper compiles and minifies the given scss files and copies the output to the given folder. 
 
-Import the *Tasks/build-scss.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
+Import the *Tasks/scss-targets.js* file in your Gulpfile, then create a Gulp task that uses this helper as a pipeline.
 
 Usage:
 
 ```
-const buildScss = require('path/to/Lombiq.Gulp.Extensions/Tasks/build-scss');
+const scssTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/scss-targets');
 
-gulp.task('build:styles', () => buildScss('./Assets/scss/**/*.scss', './wwwroot/'));
+gulp.task('build:styles', () => scssTargets('./Assets/Styles/**/*.scss', './wwwroot/css/'));
 ```
 
 ### Copy assets
@@ -60,7 +60,7 @@ This helper makes it possible to copy one or multiple javascript files to a dest
 
 1. Copy *example.eslintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file (e.g. `"./src/Utilities/Lombiq.Gulp.Extensions/ESLint/lombiq-base.js"`).
 2. Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
-3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019) it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.sjon* to make this work; gitignore it in your repository along the lines of:
+3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019), it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.json* to make this work; gitignore it in your repository along the lines of:
 
     ```
     /src/package.json
@@ -75,9 +75,14 @@ Usage:
 const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
 const source = './Assets/Scripts/'
-const destination = './directory-to-copy-into'
+const destination = './wwwroot/js'
 
-gulp.task('build:js', () => jsTargets.compile(source, destination));
+gulp.task('build:scripts', () => jsTargets.compile(source, destination));
+
+// Or you can pass a function to modify the pipeline before saving the files and e.g. run Babel:
+gulp.task(
+    'build:scripts',
+    () => jsTargets.compile(source, destination, (pipeline) => pipeline.pipe(babel({ presets: ['@babel/preset-env'] }))));
 ```
 
 #### ESlint rules
@@ -102,6 +107,47 @@ If you want to integrate ESLint into MSBuild builds you need to include Lombiq's
 ```
 Then a warning will be sent to the error list if ESLint finds a rule violation.
 
+**Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
+
+
+## Tips for using and naming multiple Gulp tasks
+
+It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development, we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
+
+```js
+const gulp = require('gulp');
+const watch = require('gulp-watch');
+const babel = require('gulp-babel');
+const scssTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/scss-targets');
+const jsTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/js-targets');
+
+const assetsBasePath = './Assets/';
+const distBasePath = './wwwroot/';
+const stylesBasePath = assetsBasePath + 'Styles/';
+const stylesDistBasePath = distBasePath + 'css/';
+const scriptsBasePath = assetsBasePath + 'Scripts/';
+const scriptsDistBasePath = distBasePath + 'js/';
+
+gulp.task('build:styles', scssTargets.build(stylesBasePath, stylesDistBasePath));
+gulp.task('clean:styles', scssTargets.clean(stylesDistBasePath));
+
+gulp.task(
+    'build:scripts',
+    () => jsTargets.compile(
+        scriptsBasePath, scriptsDistBasePath, (pipeline) => pipeline.pipe(babel({ presets: ['@babel/preset-env'] }))));
+
+gulp.task('clean:scripts', jsTargets.clean(scriptsDistBasePath));
+
+gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts'));
+
+gulp.task('default', gulp.parallel('build:styles', 'build:scripts'));
+
+gulp.task('watch', () => {
+    watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles'));
+    watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts'));
+});
+
+```
 
 
 ## Contributing and support
