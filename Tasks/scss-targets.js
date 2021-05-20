@@ -8,6 +8,7 @@ const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
+const browsersync = require('browser-sync').create(); // Initialize the Browsersync server.
 
 const defaultCompatibleBrowsers = [
     'last 1 Chrome version',
@@ -38,6 +39,26 @@ function minify(destination) {
         .pipe(gulp.dest(destination));
 }
 
+function browsersyncServe(callback) {
+    browsersync.init({
+        logPrefix: 'Test BrowserSync',
+        host: 'localhost',
+        port: 65228,
+        open: false,
+        notify: false,
+        ghost: false,
+        files: [
+            './Styles/**/*.css'
+        ]
+    });
+    callback();
+}
+
+function browsersyncReload(callback) {
+    browsersync.reload();
+    callback();
+}
+
 function clean(destination) {
     return () => del([destination + '**/*.css', destination + '**/*.css.map']);
 }
@@ -53,5 +74,5 @@ function build(source, destination, compatibleBrowsers) {
 }
 
 module.exports = {
-    build, compile, minify, clean,
+    build, compile, minify, clean, browsersyncServe, browsersyncReload 
 };
