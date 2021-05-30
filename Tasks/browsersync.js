@@ -7,10 +7,15 @@ async function browsersyncServe(destination) {
         host: 'localhost',
         port: 65228,
         open: false,
-        notify: true
+        notify: true,
+        files: destination
     });
 
-    gulp.watch(destination).on('change', browsersyncReload);
+    browsersync.watch(destination, function (event, file) {
+        if (event === "change") {
+            browsersync.notify(file + ' has been changed.', 2000);
+        }
+    });
 }
 
 async function browsersyncReload() {
