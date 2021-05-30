@@ -1,17 +1,19 @@
 const gulp = require('gulp');
 const browsersync = require('browser-sync').create('Test Server'); // Initialize the Browsersync server.
 
-async function browsersyncServe(destination) {
-    browsersync.init({
-        logPrefix: 'Test Browsersync',
+async function browsersyncServe(options) {
+    const defaultOptions = {
         host: 'localhost',
         port: 65228,
         open: false,
-        notify: true,
-        files: destination
-    });
+        online: false
+    }
 
-    browsersync.watch(destination, function (event, file) {
+    // Merge object properties with the spread operator. 
+    // In the case of a key collision, the right - most(last) object's value wins out.
+    browsersync.init({ ...defaultOptions, ...options });
+
+    browsersync.watch(options.files, function (event, file) {
         if (event === "change") {
             browsersync.notify(file + ' has been changed.', 2000);
         }
