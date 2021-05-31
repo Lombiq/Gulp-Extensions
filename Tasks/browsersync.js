@@ -11,14 +11,10 @@ async function browsersyncServe(options) {
     browsersync.init({ ...defaultOptions, ...options });
 
     browsersync.watch(options.files, function (event, file) {
-        if (event === "change") {
+        if (event === 'change') {
             browsersync.notify(`${file} has been changed.`, 2000);
         }
     });
-}
-
-async function browsersyncReload() {
-    browsersync.reload();
 }
 
 module.exports = {
