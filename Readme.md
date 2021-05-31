@@ -109,7 +109,6 @@ Then a warning will be sent to the error list if ESLint finds a rule violation.
 
 **Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
 
-
 ### Browsersync
 
 This helper enables you to test your website in real time with the help of the [Browsersync](https://browsersync.io). It works by spinning up a local server and syncing it up to your browser.
@@ -132,10 +131,12 @@ gulp.task('browsersyncStart', () => browsersync.browsersyncServe(browsersyncOpti
 ```
 
 If you are not using the proxy mode, the terminal will ask you to add a snippet:
->  Copy the following snippet into your website, just before the closing </body> tag
-> <script id="__bs_script__">//<![CDATA[
->    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
-> //]]></script>
+```
+Copy the following snippet into your website, just before the closing </body> tag
+<script id="__bs_script__">//<![CDATA[
+   	document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+```
 
 **Note** that Browsersync will inform all browsers about changed files and will either cause the browser to refresh, or inject the files where possible. 
 
