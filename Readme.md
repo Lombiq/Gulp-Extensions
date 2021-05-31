@@ -130,6 +130,8 @@ const browsersyncOptions = {
 gulp.task('browsersyncStart', () => browsersync.browsersyncServe(browsersyncOptions));
 ```
 
+If you are using the [proxy mode](https://browsersync.io/docs/options#option-proxy) you have to add the existing vhost in the options. Browsersync will wrap your vhost with a proxy URL to view your site.
+
 If you are not using the proxy mode, the terminal will ask you to add a snippet:
 ```
 Copy the following snippet into your website, just before the closing </body> tag
