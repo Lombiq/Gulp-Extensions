@@ -1,6 +1,6 @@
 const browsersync = require('browser-sync').create('Browsersync Server');
 
-async function browsersyncServe(options) {
+async function start(options) {
     const defaultOptions = {
         open: false,
         online: false
@@ -17,4 +17,4 @@ async function browsersyncServe(options) {
     });
 }
 
-module.exports = browsersyncServe;
+module.exports = { start };
