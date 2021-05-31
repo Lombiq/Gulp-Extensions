@@ -18,5 +18,5 @@ async function browsersyncServe(options) {
 }
 
 module.exports = {
-    browsersyncServe, browsersyncReload
+    browsersyncServe
 };
