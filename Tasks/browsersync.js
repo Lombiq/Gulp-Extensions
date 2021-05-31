@@ -7,7 +7,7 @@ async function browsersyncServe(options) {
     }
 
     // Merge object properties with the spread operator. 
-    // In the case of a key collision, the right - most(last) object's value wins out.
+    // In the case of a key collision, the right-most (last) object's value wins out.
     browsersync.init({ ...defaultOptions, ...options });
 
     browsersync.watch(options.files, function (event, file) {
@@ -17,6 +17,4 @@ async function browsersyncServe(options) {
     });
 }
 
-module.exports = {
-    browsersyncServe
-};
+module.exports = browsersyncServe;

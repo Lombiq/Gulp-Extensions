@@ -111,14 +111,13 @@ Then a warning will be sent to the error list if ESLint finds a rule violation.
 
 ### Browsersync
 
-This helper enables you to see client-side changes in realtime using [Browsersync](https://browsersync.io). It works by spinning up a local server that watches files (according to the configuration) for changes to be able reload/inject static resources with or without reloading the page for every active browser session.
+This helper enables you to see client-side changes in realtime using [Browsersync](https://browsersync.io). It works by spinning up a local server that watches files (according to the configuration) for changes to be able reload/inject static resources with or without reloading the page for every active browser session. Find more information in the [official documentation](https://browsersync.io/docs/options).
 
 Usage:
 ```js
 const cssFilesPath = '**/*.css';
 const jsFilesPath = '**/*.js';
 
-// You can find all of the available options here: https://browsersync.io/docs/options.
 const browsersyncOptions = {    
     files: [
         cssFilesPath,
