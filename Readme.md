@@ -111,8 +111,7 @@ Then a warning will be sent to the error list if ESLint finds a rule violation.
 
 ### Browsersync
 
-This helper enables you to test your website in real time with the help of the [Browsersync](https://browsersync.io). It works by spinning up a local server and syncing it up to your browser.
-Then, anytime you make a change in your code or files, it will reload the browser to update it immediately.
+This helper enables you to see client-side changes in realtime using [Browsersync](https://browsersync.io). It works by spinning up a local server that watches files (according to the configuration) for changes to be able reload/inject static resources with or without reloading the page for every active browser session.
 
 Usage:
 ```js
@@ -130,17 +129,14 @@ const browsersyncOptions = {
 gulp.task('browsersyncStart', () => browsersync.browsersyncServe(browsersyncOptions));
 ```
 
-If you are using the [proxy mode](https://browsersync.io/docs/options#option-proxy) you have to add the existing vhost in the options. Browsersync will wrap your vhost with a proxy URL to view your site.
+Using [proxy mode](https://browsersync.io/docs/options#option-proxy) requires an existing vhost added in the options, which Browsersync will create a proxy for.
 
-If you are not using the proxy mode, the terminal will ask you to add a snippet:
-```
-Copy the following snippet into your website, just before the closing </body> tag
+If you are not using the proxy mode, the terminal will ask you to add a snippet just before the closing </body> tag, for example:
+```html
 <script id="__bs_script__">//<![CDATA[
    	document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 ```
-
-**Note** that Browsersync will inform all browsers about changed files and will either cause the browser to refresh, or inject the files where possible. 
 
 ## Tips for using and naming multiple Gulp tasks
 
