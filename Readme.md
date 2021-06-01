@@ -133,7 +133,7 @@ Using [proxy mode](https://browsersync.io/docs/options#option-proxy) requires an
 If you are not using the proxy mode, the terminal will ask you to add a snippet just before the closing </body> tag, for example:
 ```html
 <script id="__bs_script__">//<![CDATA[
-   	document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
+   	document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 ```
 
