@@ -53,5 +53,5 @@ function build(source, destination, compatibleBrowsers) {
 }
 
 module.exports = {
-    build, compile, minify, clean,
+    build, compile, minify, clean
 };
