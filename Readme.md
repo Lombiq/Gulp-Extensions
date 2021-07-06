@@ -40,16 +40,16 @@ Usage:
 ```
 const copyAssets = require('path/to/Lombiq.Gulp.Extensions/Tasks/copy-assets');
 
-const assets = [        
+const assets = [
     {
         name: 'jquery-validation',
-        path: './node_modules/jquery-validation/dist/*'
+        path: './node_modules/jquery-validation/dist/*',
     },
     {
         name: 'images',
-        path: './Assets/images/**/*'
-    }
-]
+        path: './Assets/images/**/*',
+    },
+];
 
 gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 ```
