@@ -182,5 +182,10 @@ module.exports = {
         'strict': ['warn', 'safe'],
 
         'import/no-extraneous-dependencies': 'off',
-    }
+    },
+
+    // This is required for bleeding edge JS features like optional chaining (@babel/plugin-proposal-optional-chaining).
+    'parserOptions': {
+        'ecmaVersion': 2020
+    },
 }
