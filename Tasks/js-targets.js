@@ -4,8 +4,9 @@ const eslint = require('gulp-eslint');
 
 function compile(source, destination, pipelineModifier) {
     const copyDestination = destination || source;
+    const copySource = source.endsWith('/') ? source + '**/*.js' : source;
 
-    let pipeline = gulp.src(source + '**/*.js')
+    let pipeline = gulp.src(copySource)
         .pipe(eslint())
         .pipe(eslint.format('tap'));
 
