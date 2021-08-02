@@ -13,6 +13,8 @@ Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) librar
 
 ## Included Gulp tasks
 
+It's recommended that you put this project into a folder named _Lombiq.Gulp.Extensions_ and under the _src/Utilities_ folder.
+
 ### SCSS build
 
 This helper compiles and minifies the given scss files and copies the output to the given folder. 
