@@ -14,7 +14,7 @@ const eslint = require('gulp-eslint');
 /**
  * This method processes all JavaScript files in the `source` folder incl. all subfolders, and saves the resulting
  * files in the `destination` folder.
- * 
+ *
  * @param {string | NodeJS.ReadWriteStream} source A source file or folder path, or a `gulp.src()` object.
  * @param {string} destination The destination folder path; if null, `source` will be used.
  * @param {pipelineModifier} pipelineModifier A callback to be executed on the source files before saving them to disk.
@@ -22,7 +22,7 @@ const eslint = require('gulp-eslint');
  */
 function compile(source, destination, pipelineModifier) {
     if (typeof source !== 'string' && !destination) {
-        throw 'Please provide a "destination" folder for the processed files!';
+        throw new Error('Please provide a "destination" folder for the processed files!');
     }
 
     const copyDestination = destination || source;
