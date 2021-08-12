@@ -62,7 +62,7 @@ This helper makes it possible to copy one or multiple javascript files to a dest
 
 1. Copy *example.eslintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file (e.g. `"./src/Utilities/Lombiq.Gulp.Extensions/ESLint/lombiq-base.js"`).
 2. Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
-3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019), it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.json* to make this work; gitignore it in your repository along the lines of:
+3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019), it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. Note that you have to enable the ESLint integration for it to work in the editor. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.json* to make this work; gitignore it in your repository along the lines of:
 
     ```
     /src/package.json
