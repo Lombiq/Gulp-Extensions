@@ -20,6 +20,7 @@ const eslint = require('gulp-eslint');
  * @param {pipelineModifier} pipelineModifier A callback to be executed on the source files before saving them to disk.
  * @returns {NodeJS.ReadWriteStream} The files pipeline.
  */
+function compile(source, destination, pipelineModifier, options) {
     if (typeof source !== 'string' && !destination) {
         throw new Error('Please provide a "destination" folder for the processed files!');
     }
@@ -36,6 +37,7 @@ const eslint = require('gulp-eslint');
     }
 
     let pipeline = sourceStream
+        .pipe(eslint(options))
         .pipe(eslint.format('tap'));
 
     if (typeof pipelineModifier === 'function') {
