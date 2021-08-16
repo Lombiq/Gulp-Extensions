@@ -85,7 +85,15 @@ gulp.task('build:scripts', () => jsTargets.compile(source, destination));
 gulp.task(
     'build:scripts',
     () => jsTargets.compile(source, destination, (pipeline) => pipeline.pipe(babel({ presets: ['@babel/preset-env'] }))));
+
+// You can also pass additional options to ESLint.
+// Here's an example for fixing automatically fixable rule violations in-place:
+gulp.task(
+    'build:scripts--fix',
+    () => jsTargets.compile(scriptsBasePath, scriptsBasePath, null, { fix: true }));
 ```
+
+Read more about `options` in the CLI [documentation](https://eslint.org/docs/developer-guide/nodejs-api#cliengine).
 
 #### ESlint rules
 
