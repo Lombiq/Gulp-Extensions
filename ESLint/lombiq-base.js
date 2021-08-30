@@ -16,7 +16,8 @@ module.exports = {
         // Lombiq rules
         'max-len': [
             'warn',
-            120,
+            // 150 characters is a hard limit but the soft limit is at 120.
+            150,
             2,
             {
                 'ignoreUrls': true,
