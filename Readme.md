@@ -60,7 +60,11 @@ gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
 
 ### JS Targets (ESLint)
 
-This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (ESLint) on it. You can use it as following:
+This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (ESLint) on it.
+
+Looking for something similar for .NET? Check out our [.NET Analyzers project](https://github.com/Lombiq/.NET-Analyzers).
+
+You can use it as following:
 
 1. Copy *example.eslintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file (e.g. `"./src/Utilities/Lombiq.Gulp.Extensions/ESLint/lombiq-base.js"`).
 2. Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
