@@ -187,6 +187,21 @@ gulp.task('watch', () => {
 ```
 
 
+## Using pnpm for package restore
+
+[pnpm](https://pnpm.io/) is a faster and more efficient package manager. If it's installed globally, then the Gulp Extension module will use that instead of *npm* to restore packages.
+
+### Installation and usage
+
+To install *pnpm* globally run this command: `npm install pnpm -g`. Once it's complete, the module will automatically use that to restore packages.
+
+### Notes
+
+* *pnpm* supports restoring packages directly to a folder so moving the *node_modules* folder to a parent folder is not necessary anymore.
+* *pnpm* uses its own package lock file, meaning you need to maintain both *pnpm-lock.yaml* and *package-lock.json* files in case of adding a new package or updating one.
+* *pnpm* will install the latest package dependencies unless it's overriden from the *package.json* file. E.g., the latest *sass* is installed along with the *gulp-dart-sass* that might [cause issues with Bootstrap 4](https://github.com/twbs/bootstrap/issues/34051) so it's overriden with a lower version.
+
+
 ## Contributing and support
 
 If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
