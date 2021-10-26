@@ -1,10 +1,8 @@
-// Copy this file to the root directory and modify the path below if necessary.
+// Copy this file to the root directory and modify the path below if necessary. Remove this comment!
 
 {
-  "extends": "./src/Utilities/Lombiq.Gulp.Extensions/stylelint/lombiq-base.stylelintrc",
+  "extends": "./src/Utilities/Lombiq.Gulp.Extensions/stylelint/lombiq-base.stylelintrc.json",
 
   "rules": {
-    // Add overriding rules here like this:
-    // "example-rule" : "true"
   }
 }
