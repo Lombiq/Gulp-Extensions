@@ -1,7 +1,7 @@
-// Copy this file to the root directory and modify <path-to>
+// Copy this file to the root directory and modify the path below if necessary.
 
 {
-  "extends": "<path-to>/lombiq-base.js",
+  "extends": "./src/Utilities/Lombiq.Gulp.Extensions/ESLint/lombiq-base.js",
 
   "rules": {
     // Add overriding rules here like this:

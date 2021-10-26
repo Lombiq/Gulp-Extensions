@@ -25,7 +25,7 @@ Import the *Tasks/scss-targets.js* file in your Gulpfile, then create a Gulp tas
 
 Usage:
 
-```
+```js
 const scssTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/scss-targets');
 
 gulp.task('build:styles', scssTargets.build('./Assets/Styles/', './wwwroot/css/'));
@@ -41,7 +41,7 @@ The first input parameter is an array of objects where it is possible to specify
 
 Usage:
 
-```
+```js
 const copyAssets = require('path/to/Lombiq.Gulp.Extensions/Tasks/copy-assets');
 
 const assets = [
@@ -66,7 +66,7 @@ Looking for something similar for .NET? Check out our [.NET Analyzers project](h
 
 You can use ESLint as follows:
 
-1. Copy *example.eslintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside as described in the file (e.g. `"./src/Utilities/Lombiq.Gulp.Extensions/ESLint/lombiq-base.js"`).
+1. Copy *example.eslintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.eslintrc*, and specify *lombiq-base.js*'s location inside.
 2. Import the *Tasks/js-targets.js* file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019), it will recognize the rules and show any violations after the copying of *.eslintrc* as mentioned above. Note that you have to enable the ESLint integration for it to work in the editor. The *vs-eslint-package.json* file is automatically copied into your solution directory as *package.json* to make this work; gitignore it in your repository along the lines of:
 
@@ -79,7 +79,7 @@ You can use ESLint as follows:
 The input parameters are `string`s of the source and destination folders containing scripts that need to be analyzed and copied.
 
 Usage:
-```
+```js
 const jsTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/js-targets');
 
 const source = './Assets/Scripts/'
@@ -116,7 +116,7 @@ If a certain rule's violation is incorrect in a given location, or you want to s
 #### Integrating with MSBuild
 
 If you want to integrate ESLint into MSBuild builds you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. In the project ESLint needs use, you need to import these files in the `.csproj` file:
-```
+```xml
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
 <Import Project="path\to\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets"/>
