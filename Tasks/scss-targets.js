@@ -26,7 +26,7 @@ function compile(source, destination, compatibleBrowsers) {
         .pipe(plumber())
         .pipe(stylelint({
             reporters: [
-                { formatter: 'string', console: true },
+                { formatter: 'verbose', console: true },
             ],
         }))
         .pipe(sourcemaps.init({ loadMaps: true }))
