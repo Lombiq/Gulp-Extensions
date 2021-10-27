@@ -56,16 +56,3 @@ Details on rules can be found in the [ESLint documentation](https://eslint.org/d
 The MSBuild output or the Gulp task runner will show you all of the ESLint rule violations in a detailed manner.
 
 If a certain rule's violation is incorrect in a given location, or you want to suppress it locally, [you can disable them](https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments). Just always comment such disables so it's apparent why it was necessary.
-
-
-## Integrating with MSBuild
-
-If you want to integrate ESLint into MSBuild builds you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. In the project ESLint needs use, you need to import these files in the `.csproj` file:
-```xml
-<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
-<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
-<Import Project="path\to\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets"/>
-```
-Then a warning will be sent to the error list if ESLint finds a rule violation.
-
-**Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.

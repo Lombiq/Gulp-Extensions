@@ -13,17 +13,36 @@ Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) librar
 Do you want to quickly try out this project and see it in action? Check it out in our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) full Orchard Core solution and also see our other useful Orchard Core-related open-source projects!
 
 
-## Included Gulp tasks
+## Installation and usage
 
 It's recommended that you put this project into a folder named _Lombiq.Gulp.Extensions_ and under the _src/Utilities_ folder.
+
+
+### Integrating with MSBuild
+
+If you want to integrate ESLint and stylelint into MSBuild builds then you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. In the affected projects, you need to import these files in the `.csproj` file:
+
+```xml
+<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
+<Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
+<Import Project="path\to\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets"/>
+```
+
+Then, warnings will be sent to the error list if the linters find rule violations.
+
+**Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
+
+
+## Gulp tasks
+
+### Included Gulp tasks
 
 - [SCSS targets](Docs/ScssTargets.md)
 - [Copy assets](Docs/CopyAssets.md)
 - [JS targets](Docs/JsTargets.md)
 - [Browsersync](Docs/Browsersync.md)
 
-
-## Tips for using and naming multiple Gulp tasks
+### Tips for using and naming multiple Gulp tasks
 
 It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development, we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
 
