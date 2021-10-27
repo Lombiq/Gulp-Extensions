@@ -17,9 +17,9 @@ Do you want to quickly try out this project and see it in action? Check it out i
 
 It's recommended that you put this project into a folder named _Lombiq.Gulp.Extensions_ and under the _src/Utilities_ folder.
 
-- [SCSS build](Docs/ScssBuild.md)
+- [SCSS targets](Docs/ScssTargets.md)
 - [Copy assets](Docs/CopyAssets.md)
-- [JS Targets](Docs/JsTargets.md)
+- [JS targets](Docs/JsTargets.md)
 - [Browsersync](Docs/Browsersync.md)
 
 

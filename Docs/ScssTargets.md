@@ -1,4 +1,4 @@
-# SCSS build Gulp task
+# SCSS targets Gulp task
 
 
 

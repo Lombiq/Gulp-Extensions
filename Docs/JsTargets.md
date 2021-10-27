@@ -1,4 +1,4 @@
-# JS Targets (ESLint)
+# JS targets (ESLint) Gulp task
 
 
 
