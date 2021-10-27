@@ -1,7 +1,10 @@
 {
-    "extends": "stylelint-config-standard-scss",
+  "extends": "stylelint-config-standard-scss",
 
-    "rules": {
-        "indentation": 4
-    }
+  "rules": {
+    "indentation": 4,
+    "keyframes-name-pattern": null,
+    "selector-class-pattern": null,
+    "selector-list-comma-newline-after": "always-multi-line"
+  }
 }
