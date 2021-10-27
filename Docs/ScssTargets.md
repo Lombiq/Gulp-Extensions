@@ -24,7 +24,7 @@ The rules are found in 2 files:
 - *lombiq-base.stylelintrc.json*: These rules are Lombiq overrides for [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss).
 - *.stylelintrc*: In this file you can define your own overriding rules.
 
-Details on rules can be found in the [stylelint documentation](https://stylelint.io/user-guide/rules/list).
+Details on rules can be found in the [stylelint documentation](https://stylelint.io/user-guide/rules/list). If you want to find out what the currently applied configuration is, coming from all the various extended configuration files, then run `npx stylelint --print-config . > rules.json` at the given location.
 
 The MSBuild output or the Gulp task runner will show you all of the stylelint rule violations in a detailed manner.
 
