@@ -18,6 +18,20 @@ const scssTargets = require('path/to/Lombiq.Gulp.Extensions/Tasks/scss-targets')
 gulp.task('build:styles', scssTargets.build('./Assets/Styles/', './wwwroot/css/'));
 ```
 
+You'll see any errors or linter rule violations show up in the Gulp console.
+
+Unfortunately, there's no Visual Studio editor support to see linter violations in real-time. You can, however, write SCSS in Visual Studio Code and use the official [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint): Just install it and configure it to validate SCSS files too under its "Stylelint: Validate" option or use the below snippet in VS Code's *settings.json*.
+
+```json
+"stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss"
+],
+```
+
+
 ## Stylelint rules
 
 The rules are found in 2 files:
