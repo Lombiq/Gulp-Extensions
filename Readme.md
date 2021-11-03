@@ -44,7 +44,15 @@ Then, warnings will be sent to the error list if the linters find rule violation
 
 ### Tips for using and naming multiple Gulp tasks
 
-It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development, we recommend that you add `build`, `clean`, and `watch` tasks as well. Here's an sample of a Gulpfile that demonstrates this:
+It's recommended to have conventionally named tasks for stylesheets and scripts. We use the `build:styles`/`build:scripts` convention, and similar pairs for `clean` (you may also do this for `watch`). To allow convenient development, we recommend that you add `build`, `clean`, and `watch` tasks as well. We've included a module to set up all the recommended targets automatically:
+
+```js
+const recommendedSetup = require('../../Utilities/Lombiq.Gulp.Extensions/recommended-setup');
+
+recommendedSetup.setupRecommendedScssAndJsTasks();
+```
+
+Or here's an sample of a Gulpfile that demonstrates the whole approach:
 
 ```js
 const gulp = require('gulp');
