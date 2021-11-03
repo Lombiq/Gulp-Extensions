@@ -50,6 +50,10 @@ It's recommended to have conventionally named tasks for stylesheets and scripts.
 const recommendedSetup = require('../../Utilities/Lombiq.Gulp.Extensions/recommended-setup');
 
 recommendedSetup.setupRecommendedScssAndJsTasks();
+
+// Or either of these:
+recommendedSetup.setupRecommendedJsTasks();
+recommendedSetup.setupRecommendedScssTasks();
 ```
 
 Or here's an sample of a Gulpfile that demonstrates the whole approach:
