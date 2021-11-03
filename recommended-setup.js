@@ -49,8 +49,7 @@ function setupRecommendedScssAndJsTasks() {
         watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts'));
     });
 
-    gulp.task('build', gulp.parallel('build:styles', 'build:scripts'));
-    gulp.task('default', gulp.series('build'));
+    gulp.task('default', gulp.parallel('build:styles', 'build:scripts'));
 
     return this;
 }
@@ -59,12 +58,52 @@ function setupVendorsCopyAssets(assets) {
     gulp.task('copy:vendor-assets', () => copyAssets.copy(assets, './wwwroot/vendors'));
     gulp.task('clean:vendor-assets', () => copyAssets.clean('./wwwroot/vendors'));
 
-    gulp.task('default', gulp.series('copy:vendor-assets'));
+    gulp.task('default', gulp.parallel('copy:vendor-assets'));
     gulp.task('clean', gulp.series('clean:vendor-assets'));
 
     return this;
 }
 
+function setupRecommendedScssAndJsTasksAndVendorsCopyAssets(assets) {
+    setupRecommendedScssAndJsTasks();
+    setupVendorsCopyAssets(assets);
+
+    gulp.task('default', gulp.parallel('build:styles', 'build:scripts', 'copy:vendor-assets'));
+    gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts', 'clean:vendor-assets'));
+}
+
+function setupCopyAssets(assets) {
+    const paths = assets.map((asset) => './wwwroot/' + asset.name);
+
+    gulp.task('copy:assets', () => copyAssets.copy(assets, './wwwroot/'));
+    gulp.task(
+        'clean:assets',
+        async () => {
+            for (let i = 0; i < paths.length; i++) {
+                copyAssets.clean(paths[i]);
+            }
+        });
+
+    gulp.task('default', gulp.parallel('copy:assets'));
+    gulp.task('clean', gulp.series('clean:assets'));
+
+    return this;
+}
+
+function setupRecommendedScssAndJsTasksAndCopyAssets(assets) {
+    setupRecommendedScssAndJsTasks();
+    setupCopyAssets(assets);
+
+    gulp.task('default', gulp.parallel('build:styles', 'build:scripts', 'copy:assets'));
+    gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts', 'clean:assets'));
+}
+
 module.exports = {
-    setupRecommendedScssTasks, setupRecommendedJsTasks, setupRecommendedScssAndJsTasks, setupVendorsCopyAssets,
+    setupRecommendedScssTasks,
+    setupRecommendedJsTasks,
+    setupRecommendedScssAndJsTasks,
+    setupVendorsCopyAssets,
+    setupRecommendedScssAndJsTasksAndVendorsCopyAssets,
+    setupCopyAssets,
+    setupRecommendedScssAndJsTasksAndCopyAssets,
 };

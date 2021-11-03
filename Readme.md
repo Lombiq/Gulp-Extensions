@@ -55,7 +55,7 @@ recommendedSetup.setupRecommendedScssAndJsTasks();
 recommendedSetup.setupRecommendedJsTasks();
 recommendedSetup.setupRecommendedScssTasks();
 
-// There's also recommendedSetup.setupVendorsCopyAssets(assets).
+// There's also recommendedSetup.setupCopyAssets(assets) and several other such shortcuts.
 ```
 
 Or here's an sample of a Gulpfile that demonstrates the whole approach:
