@@ -56,11 +56,11 @@ function setupRecommendedScssAndJsTasks() {
 }
 
 function setupVendorsCopyAssets(assets) {
-    gulp.task('copy:assets', () => copyAssets.copy(assets, './wwwroot/vendors'));
-    gulp.task('clean:assets', () => copyAssets.clean('./wwwroot/vendors'));
+    gulp.task('copy:vendor-assets', () => copyAssets.copy(assets, './wwwroot/vendors'));
+    gulp.task('clean:vendor-assets', () => copyAssets.clean('./wwwroot/vendors'));
 
-    gulp.task('default', gulp.series('copy:assets'));
-    gulp.task('clean', gulp.series('clean:assets'));
+    gulp.task('default', gulp.series('copy:vendor-assets'));
+    gulp.task('clean', gulp.series('clean:vendor-assets'));
 
     return this;
 }
