@@ -24,5 +24,6 @@ const assets = [
     },
 ];
 
-gulp.task('copy:assets', () => copyAssets(assets, './wwwroot/'));
+gulp.task('copy:assets', () => copyAssets.copy(assets, './wwwroot/'));
+gulp.task('clean:assets', () => copyAssets.clean('./wwwroot/'));
 ```

@@ -3,6 +3,7 @@ const watch = require('gulp-watch');
 const babel = require('gulp-babel');
 const scssTargets = require('./Tasks/scss-targets');
 const jsTargets = require('./Tasks/js-targets');
+const copyAssets = require('./Tasks/copy-assets');
 
 const assetsBasePath = './Assets/';
 const distBasePath = './wwwroot/';
@@ -17,6 +18,8 @@ function setupRecommendedScssTasks() {
     gulp.task('watch:styles', () => watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles')));
     gulp.task('default', gulp.series('build:styles'));
     gulp.task('clean', gulp.series('clean:styles'));
+
+    return this;
 }
 
 function setupRecommendedJsTasks() {
@@ -31,6 +34,8 @@ function setupRecommendedJsTasks() {
     gulp.task('watch:scripts', () => watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts')));
     gulp.task('default', gulp.series('build:scripts'));
     gulp.task('clean', gulp.series('clean:scripts'));
+
+    return this;
 }
 
 function setupRecommendedScssAndJsTasks() {
@@ -46,8 +51,20 @@ function setupRecommendedScssAndJsTasks() {
 
     gulp.task('build', gulp.parallel('build:styles', 'build:scripts'));
     gulp.task('default', gulp.series('build'));
+
+    return this;
+}
+
+function setupVendorsCopyAssets(assets) {
+    gulp.task('copy:assets', () => copyAssets.copy(assets, './wwwroot/vendors'));
+    gulp.task('clean:assets', () => copyAssets.clean('./wwwroot/vendors'));
+
+    gulp.task('default', gulp.series('copy:assets'));
+    gulp.task('clean', gulp.series('clean:assets'));
+
+    return this;
 }
 
 module.exports = {
-    setupRecommendedScssTasks, setupRecommendedJsTasks, setupRecommendedScssAndJsTasks,
+    setupRecommendedScssTasks, setupRecommendedJsTasks, setupRecommendedScssAndJsTasks, setupVendorsCopyAssets,
 };

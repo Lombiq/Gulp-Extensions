@@ -54,6 +54,8 @@ recommendedSetup.setupRecommendedScssAndJsTasks();
 // Or either of these:
 recommendedSetup.setupRecommendedJsTasks();
 recommendedSetup.setupRecommendedScssTasks();
+
+// There's also recommendedSetup.setupVendorsCopyAssets(assets).
 ```
 
 Or here's an sample of a Gulpfile that demonstrates the whole approach:
