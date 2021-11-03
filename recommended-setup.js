@@ -15,7 +15,8 @@ function setupRecommendedScssTasks() {
     gulp.task('build:styles', scssTargets.build(stylesBasePath, stylesDistBasePath));
     gulp.task('clean:styles', scssTargets.clean(stylesDistBasePath));
     gulp.task('watch:styles', () => watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles')));
-    gulp.task('default', gulp.parallel('build:styles'));
+    gulp.task('default', gulp.series('build:styles'));
+    gulp.task('clean', gulp.series('clean:styles'));
 }
 
 function setupRecommendedJsTasks() {
@@ -28,7 +29,8 @@ function setupRecommendedJsTasks() {
 
     gulp.task('clean:scripts', jsTargets.clean(scriptsDistBasePath));
     gulp.task('watch:scripts', () => watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts')));
-    gulp.task('default', gulp.parallel('build:scripts'));
+    gulp.task('default', gulp.series('build:scripts'));
+    gulp.task('clean', gulp.series('clean:scripts'));
 }
 
 function setupRecommendedScssAndJsTasks() {
@@ -42,7 +44,8 @@ function setupRecommendedScssAndJsTasks() {
         watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts'));
     });
 
-    gulp.task('default', gulp.parallel('build:styles', 'build:scripts'));
+    gulp.task('build', gulp.parallel('build:styles', 'build:scripts'));
+    gulp.task('default', gulp.series('build'));
 }
 
 module.exports = {
