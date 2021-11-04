@@ -13,9 +13,10 @@ Usage:
 ```js
 const copyAssets = require('path/to/Lombiq.Gulp.Extensions/Tasks/copy-assets');
 
+// Note how "name" can contain subfolders too!
 const assets = [
     {
-        name: 'jquery-validation',
+        name: 'vendors/jquery-validation',
         path: './node_modules/jquery-validation/dist/*',
     },
     {
