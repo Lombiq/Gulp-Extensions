@@ -2,7 +2,7 @@
 
 
 
-This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying a code analyzer (ESLint) on it.
+This helper makes it possible to copy one or multiple javascript files to a destination folder, after applying linting (with [ESLint](https://eslint.org/)) on it.
 
 Looking for something similar for .NET? Check out our [.NET Analyzers project](https://github.com/Lombiq/.NET-Analyzers).
 
