@@ -2,7 +2,7 @@
 
 
 
-This helper lints, compiles and minifies the given scss files and copies the output to the given folder.
+This helper lints (with [Stylelint](https://stylelint.io/)), compiles and minifies the given scss files and copies the output to the given folder.
 
 Looking for something similar for .NET? Check out our [.NET Analyzers project](https://github.com/Lombiq/.NET-Analyzers).
 
