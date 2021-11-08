@@ -55,8 +55,8 @@ function setupRecommendedScssAndJsTasks() {
 }
 
 function setupVendorsCopyAssets(assets) {
-    gulp.task('copy:vendor-assets', () => copyAssets.copy(assets, './wwwroot/vendors'));
-    gulp.task('clean:vendor-assets', () => copyAssets.clean('./wwwroot/vendors'));
+    gulp.task('copy:vendor-assets', () => copyAssets.copy(assets, distBasePath + 'vendors'));
+    gulp.task('clean:vendor-assets', () => copyAssets.clean(distBasePath + 'vendors'));
 
     gulp.task('default', gulp.parallel('copy:vendor-assets'));
     gulp.task('clean', gulp.series('clean:vendor-assets'));
@@ -73,9 +73,9 @@ function setupRecommendedScssAndJsTasksAndVendorsCopyAssets(assets) {
 }
 
 function setupCopyAssets(assets) {
-    const paths = assets.map((asset) => './wwwroot/' + asset.name);
+    const paths = assets.map((asset) => distBasePath + '' + asset.name);
 
-    gulp.task('copy:assets', () => copyAssets.copy(assets, './wwwroot/'));
+    gulp.task('copy:assets', () => copyAssets.copy(assets, distBasePath + ''));
     gulp.task(
         'clean:assets',
         async () => {
