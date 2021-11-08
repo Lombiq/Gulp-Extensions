@@ -76,6 +76,8 @@ function setupRecommendedScssAndJsTasksAndVendorsCopyAssets(
 
     gulp.task('default', gulp.parallel('build:styles', 'build:scripts', 'copy:vendor-assets'));
     gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts', 'clean:vendor-assets'));
+
+    return this;
 }
 
 function setupCopyAssets(assets, assetsDistBasePath = defaultDistBasePath) {
@@ -108,6 +110,8 @@ function setupRecommendedScssAndJsTasksAndCopyAssets(
 
     gulp.task('default', gulp.parallel('build:styles', 'build:scripts', 'copy:assets'));
     gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts', 'clean:assets'));
+
+    return this;
 }
 
 module.exports = {
