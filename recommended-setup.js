@@ -43,12 +43,7 @@ function setupRecommendedScssAndJsTasks() {
     setupRecommendedJsTasks();
 
     gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts'));
-
-    gulp.task('watch', () => {
-        watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles'));
-        watch(scriptsBasePath + '**/*.js', { verbose: true }, gulp.series('build:scripts'));
-    });
-
+    gulp.task('watch', gulp.parallel('watch:styles', 'watch:scripts'));
     gulp.task('default', gulp.parallel('build:styles', 'build:scripts'));
 
     return this;
