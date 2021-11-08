@@ -55,6 +55,9 @@ recommendedSetup.setupRecommendedScssAndJsTasks();
 recommendedSetup.setupRecommendedJsTasks();
 recommendedSetup.setupRecommendedScssTasks();
 
+// And if you want to change e.g. the output path:
+recommendedSetup.setupRecommendedScssAndJsTasks('./StylesGoHere/');
+
 // There's also recommendedSetup.setupCopyAssets(assets) and several other such shortcuts.
 ```
 
