@@ -58,7 +58,7 @@ function setupVendorsCopyAssets(assets) {
     gulp.task('copy:vendor-assets', () => copyAssets.copy(assets, distBasePath + 'vendors'));
     gulp.task('clean:vendor-assets', () => copyAssets.clean(distBasePath + 'vendors'));
 
-    gulp.task('default', gulp.parallel('copy:vendor-assets'));
+    gulp.task('default', gulp.series('copy:vendor-assets'));
     gulp.task('clean', gulp.series('clean:vendor-assets'));
 
     return this;
@@ -84,7 +84,7 @@ function setupCopyAssets(assets) {
             }
         });
 
-    gulp.task('default', gulp.parallel('copy:assets'));
+    gulp.task('default', gulp.series('copy:assets'));
     gulp.task('clean', gulp.series('clean:assets'));
 
     return this;
