@@ -29,7 +29,7 @@
   <Target Name="InitCommonNodeModules" BeforeTargets="ResolveReferences" Inputs="package.json" Outputs="$(InitCommonNodeModulesStampFile)">
     <!-- Check if pnpm is installed. -->
     <Exec Command="pnpm -v" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="PnpmInstalledExitCode"/>
+      <Output TaskParameter="ExitCode" PropertyName="PnpmInstalledExitCode" />
     </Exec>
     <!-- Use pnpm if installed. -->
     <Exec Condition="'$(PnpmInstalledExitCode)' == '0'" Command="pnpm install --modules-dir ../../node_modules" />
