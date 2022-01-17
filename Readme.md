@@ -20,7 +20,7 @@ It's recommended that you put this project into a folder named _Lombiq.Gulp.Exte
 
 ### Integrating with MSBuild
 
-If you want to integrate ESLint and Stylelint into MSBuild builds then you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. In the affected projects, you need to import these files in the `.csproj` file:
+If you want to integrate ESLint and Stylelint into MSBuild builds then you need to include Lombiq's [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) too. Make sure you have a _package.json_ file with the `dotnet-prebuild` and `dotnet-clean` scripts as indicated in the repository's readme. In the affected projects, you need to import these files in the `.csproj` file:
 
 ```xml
 <Import Project="path\to\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
