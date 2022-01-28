@@ -12,7 +12,7 @@
     <Copyright>Copyright © 2020, Lombiq Technologies Ltd.</Copyright>
     <Description>Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines. See the project website for detailed documentation.</Description>
     <PackageIcon>NuGetIcon.png</PackageIcon>
-    <PackageTags>OrchardCore;Lombiq;AspNetCore;</PackageTags>
+    <PackageTags>Lombiq;Gulp;Gulp.js;Node.js;MSBuild</PackageTags>
     <RepositoryUrl>https://github.com/Lombiq/Gulp-Extensions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Gulp-Extensions</PackageProjectUrl>
     <PackageLicenseFile>Licence.md</PackageLicenseFile>
@@ -22,7 +22,7 @@
     <None Include="Licence.md" Pack="true" PackagePath="" />
     <None Include="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
-    <None Include="build\**" Pack="True" PackagePath="build\" />
+    <None Include="build\**" Pack="true" PackagePath="build\" />
     <None Include="*.props" Pack="true" PackagePath="" />
     <None Include="*.targets" Pack="true" PackagePath="" />
   </ItemGroup>
