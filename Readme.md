@@ -2,6 +2,9 @@
 
 
 
+[![Lombiq.Gulp.Extensions NuGet](https://img.shields.io/nuget/v/Lombiq.Gulp.Extensions?label=Lombiq.Gulp.Extensions)](https://www.nuget.org/packages/Lombiq.Gulp.Extensions/)
+
+
 ## About
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
