@@ -56,3 +56,9 @@ Details on rules can be found in the [ESLint documentation](https://eslint.org/d
 The MSBuild output or the Gulp task runner will show you all of the ESLint rule violations in a detailed manner.
 
 If a certain rule's violation is incorrect in a given location, or you want to suppress it locally, [you can disable them](https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments). Just always comment such disables so it's apparent why it was necessary.
+
+The Lombiq rules enforce CRLF line endings in JS files. To ensure that during Git checkout the files have such line endings, you can add the followig _.gitattributes_ file:
+
+```
+*.js text eol=crlf
+```
