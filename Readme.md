@@ -114,12 +114,6 @@ To install *pnpm* globally run this command: `npm install pnpm -g`. Once it's co
 * *pnpm* will install the latest package dependencies unless it's overriden from the *package.json* file. E.g., the latest *sass* is installed along with the *gulp-dart-sass* that might [cause issues with Bootstrap 4](https://github.com/twbs/bootstrap/issues/34051) so it's overriden with a lower version.
 
 
-## About Git, Line Breaks and Windows
-
-
-For historical reasons, Windows uses the `\r\n` character combination to denote a line break, while Unix-like operating systems such as Linux and macOS simply use a single `\n` character. Git (created by the same guy who made Linux) treats the Unix-style line endings as the only right option. If you are on Windows your Git client is almost certainly configured to "Checkout Windows-style, commit Unix-style" by default to overcome this cultural difference. We disabled the [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) rule to avoid these headaches. We could've asked you to add a magic string in your repository's _.gitattributes_ files like the ESLint docs did but that's a right headache. [Configure Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace) to ensure your line endings are consistent.
-
-
 ## Contributing and support
 
 If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
