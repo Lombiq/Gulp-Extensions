@@ -9,6 +9,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
 const stylelint = require('gulp-stylelint');
+const process = require('process');
+const lineEndingCorrector = require('gulp-line-ending-corrector');
 
 const defaultCompatibleBrowsers = [
     'last 1 Chrome version',
@@ -30,8 +32,9 @@ function compile(source, destination, compatibleBrowsers) {
             ],
         }))
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ linefeed: process.platform === 'win32' ? 'crlf' : 'lf' }).on('error', sass.logError))
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
+        .pipe(lineEndingCorrector({ eolc: 'LF' }))
         .pipe(sourcemaps.write('.', { includeContent: true }))
         .pipe(gulp.dest(compileDestination));
 }
