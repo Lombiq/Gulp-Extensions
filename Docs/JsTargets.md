@@ -57,8 +57,16 @@ The MSBuild output or the Gulp task runner will show you all of the ESLint rule 
 
 If a certain rule's violation is incorrect in a given location, or you want to suppress it locally, [you can disable them](https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments). Just always comment such disables so it's apparent why it was necessary.
 
-The Lombiq rules enforce CRLF line endings in JS files. To ensure that during Git checkout the files have such line endings, you can add the followig _.gitattributes_ file:
+
+## Operating System Compatibility Regarding Git and Line Breaks
+
+For historical reasons, Windows uses the `\r\n` character combination (also known as CR-LF) to denote a line break, while Unix-like operating systems such as Linux and macOS simply use a single `\n` character (LF). Git (made by the creator of Linux) treats the Unix-style line endings as the only right option. If you are on Windows your Git client is almost certainly configured to "Checkout Windows-style, commit Unix-style" by default to overcome this cultural difference, but if not then it's a good practice to [configure Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace) to ensure your line endings are consistent. We disabled the [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) rule to avoid cross compatibility issues.
+
+
+To ensure that the files have consistent line endings on the remote repository, you can add the followig _.gitattributes_ file:
 
 ```
-*.js text eol=crlf
+* text=auto
 ```
+
+This will enforce the aforementioned Git configuration on a per-repository basis. The files will be checked out using your operating system's native file endings but committed using the Unix-style LF endings. Note that the conversion only happens during add
