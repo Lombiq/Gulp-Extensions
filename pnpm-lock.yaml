@@ -23,7 +23,6 @@ specifiers:
   gulp-clean-css: 4.2.0
   gulp-dart-sass: 1.0.2
   gulp-eslint: ^6.0.0
-  gulp-line-ending-corrector: 1.0.3
   gulp-plumber: 1.2.1
   gulp-postcss: 8.0.0
   gulp-rename: 2.0.0
@@ -57,7 +56,6 @@ devDependencies:
   gulp-clean-css: 4.2.0
   gulp-dart-sass: 1.0.2
   gulp-eslint: 6.0.0
-  gulp-line-ending-corrector: 1.0.3
   gulp-plumber: 1.2.1
   gulp-postcss: 8.0.0
   gulp-rename: 2.0.0
@@ -2177,12 +2175,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /coffeescript/2.6.1:
-    resolution: {integrity: sha512-GG5nkF93qII8HmHqnnibkgpp/SV7PSnSPiWsbinwya7nNOe95aE/x2xrKZJFks8Qpko3TNrC+/LahaKgrz5YCg==}
-    engines: {node: '>=6'}
-    hasBin: true
-    dev: true
-
   /collection-map/1.0.0:
     resolution: {integrity: sha1-rqDwb40mx4DCt1SUOFVEsiVa8Yw=}
     engines: {node: '>=0.10.0'}
@@ -3752,15 +3744,6 @@ packages:
       - supports-color
     dev: true
 
-  /gulp-line-ending-corrector/1.0.3:
-    resolution: {integrity: sha512-l68bon1Bbni5S5boKqya3MiwDGn8f6XGV7fsmOokkS+etVk/LY+OhFm24xy0Jlo8Xf0Rx4LsDNhmdzUGIaw7Yg==}
-    dependencies:
-      coffeescript: 2.6.1
-      line-ending-corrector: 1.0.1
-      plugin-error: 1.0.1
-      through2: 2.0.5
-    dev: true
-
   /gulp-plumber/1.2.1:
     resolution: {integrity: sha512-mctAi9msEAG7XzW5ytDVZ9PxWMzzi1pS2rBH7lA095DhMa6KEXjm+St0GOCc567pJKJ/oCvosVAZEpAey0q2eQ==}
     engines: {node: '>=0.10', npm: '>=1.2.10'}
@@ -4644,12 +4627,6 @@ packages:
 
   /limiter/1.1.5:
     resolution: {integrity: sha512-FWWMIEOxz3GwUI4Ts/IvgVy6LPvoMPgjMdQ185nN6psJyBJ4yOpzqm695/h5umdLJg2vW3GR5iG11MAkR2AzJA==}
-    dev: true
-
-  /line-ending-corrector/1.0.1:
-    resolution: {integrity: sha1-WGN+//piwZo29AGPI4i6jTHayQA=}
-    dependencies:
-      coffeescript: 2.6.1
     dev: true
 
   /lines-and-columns/1.1.6:
