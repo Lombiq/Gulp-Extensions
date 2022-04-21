@@ -19,28 +19,8 @@ const defaultCompatibleBrowsers = [
     'last 1 IE version',
     'last 1 iOS version'];
 
-function compile(source, destination, compatibleBrowsers) {
-    const compileDestination = destination || source;
-    const compileCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
-
-    return gulp.src(source + '**/*.scss')
-        .pipe(cache('scss'))
-        .pipe(plumber())
-        .pipe(stylelint({
-            reporters: [
-                { formatter: 'verbose', console: true },
-            ],
-        }))
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ linefeed: process.platform === 'win32' ? 'crlf' : 'lf' }).on('error', sass.logError))
-        .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
-        .pipe(sourcemaps.write('.', { includeContent: true }))
-        .pipe(normalizeSourceMap())
-        .pipe(gulp.dest(compileDestination));
-}
-
 function normalizeSourceMap() {
-    const normalize = (buffer) => {
+    function normalize(buffer) {
         let mapping = null;
         try {
             mapping = JSON.parse(buffer.contents.toString());
@@ -61,9 +41,27 @@ function normalizeSourceMap() {
         return buffer;
     }
 
-    return through.obj(function(file, encoding, callback) {
-        callback(null, normalize(file));
-    });
+    return through.obj((file, _, callback) => callback(null, normalize(file)));
+}
+
+function compile(source, destination, compatibleBrowsers) {
+    const compileDestination = destination || source;
+    const compileCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
+
+    return gulp.src(source + '**/*.scss')
+        .pipe(cache('scss'))
+        .pipe(plumber())
+        .pipe(stylelint({
+            reporters: [
+                { formatter: 'verbose', console: true },
+            ],
+        }))
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sass({ linefeed: process.platform === 'win32' ? 'crlf' : 'lf' }).on('error', sass.logError))
+        .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
+        .pipe(sourcemaps.write('.', { includeContent: true }))
+        .pipe(normalizeSourceMap())
+        .pipe(gulp.dest(compileDestination));
 }
 
 function minify(destination) {
