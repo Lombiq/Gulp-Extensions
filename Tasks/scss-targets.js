@@ -9,6 +9,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
 const stylelint = require('gulp-stylelint');
+const process = require('process');
+const through = require('through2');
 
 const defaultCompatibleBrowsers = [
     'last 1 Chrome version',
@@ -16,6 +18,31 @@ const defaultCompatibleBrowsers = [
     'last 1 Firefox version',
     'last 1 IE version',
     'last 1 iOS version'];
+
+function normalizeSourceMap() {
+    function normalize(buffer) {
+        let mapping = null;
+        try {
+            mapping = JSON.parse(buffer.contents.toString());
+        }
+        catch (_) {
+            return buffer; // If it's not a JSON file, move on.
+        }
+
+        if (Array.isArray(mapping.sourcesContent) && mapping.sourcesContent.length > 0) {
+            for (let index = 0; index < mapping.sourcesContent.length; index++) {
+                mapping.sourcesContent[index] = mapping.sourcesContent[index].replace(/\r\n/g, '\n');
+            }
+
+            const stringContents = JSON.stringify(mapping);
+            buffer.contents = Buffer.alloc(stringContents.length, stringContents);
+        }
+
+        return buffer;
+    }
+
+    return through.obj((file, _, callback) => callback(null, normalize(file)));
+}
 
 function compile(source, destination, compatibleBrowsers) {
     const compileDestination = destination || source;
@@ -30,9 +57,10 @@ function compile(source, destination, compatibleBrowsers) {
             ],
         }))
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ linefeed: 'crlf' }).on('error', sass.logError))
+        .pipe(sass({ linefeed: process.platform === 'win32' ? 'crlf' : 'lf' }).on('error', sass.logError))
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
+        .pipe(normalizeSourceMap())
         .pipe(gulp.dest(compileDestination));
 }
 

@@ -60,13 +60,12 @@ If a certain rule's violation is incorrect in a given location, or you want to s
 
 ## Operating System Compatibility Regarding Git and Line Breaks
 
-For historical reasons, Windows uses the `\r\n` character combination (also known as CR-LF) to denote a line break, while Unix-like operating systems such as Linux and macOS simply use a single `\n` character (LF). Git (made by the creator of Linux) treats the Unix-style line endings as the only right option. If you are on Windows your Git client is almost certainly configured to "Checkout Windows-style, commit Unix-style" by default to overcome this cultural difference, but if not then it's a good practice to [configure Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace) to ensure your line endings are consistent. We disabled the [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) rule to avoid cross compatibility issues.
+For historical reasons, Windows uses the `\r\n` character combination (also known as CR-LF) to denote a line break, while Unix-like operating systems such as Linux and macOS simply use a single `\n` character (LF). Git (made by the creator of Linux) treats the Unix-style line endings as the only right option. If you are on Windows your Git client is almost certainly configured to "Checkout Windows-style, commit Unix-style" by default to overcome this cultural difference, but if not then it's a good practice to [configure Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace) to ensure your line endings are consistent. We've disabled the [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) rule to avoid cross compatibility issues.
 
-
-To ensure that the files have consistent line endings on the remote repository, you can add the followig _.gitattributes_ file:
+To ensure that the files have consistent line endings in the remote repository, you can add the following _.gitattributes_ file:
 
 ```
 * text=auto
 ```
 
-This will enforce the aforementioned Git configuration on a per-repository basis. The files will be checked out using your operating system's native file endings but committed using the Unix-style LF endings. Note that the conversion only happens during add
+This will enforce the aforementioned Git configuration on a per-repository basis. The files will be checked out using your operating system's native line endings but will be committed using the Unix-style line endings. Note that the conversion only happens once you add your files to the staged changes.
