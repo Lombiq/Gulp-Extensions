@@ -165,7 +165,7 @@ function getNugetPath() {
     const steps = ['.nuget', 'packages'];
     Array.from(arguments).forEach((item) => steps.push(item));
 
-    let current = process.env.HOME ?? `${ process.env.HOMEDRIVE }${ process.env.HOMEPATH }`;
+    let current = process.env.HOME ?? process.env.USERPROFILE;
 
     function last(array) { return array[array.length - 1]; }
 
