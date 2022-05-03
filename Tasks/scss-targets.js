@@ -9,6 +9,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const del = require('del');
 const stylelint = require('gulp-stylelint');
+const fs = require('fs');
+const path = require('path');
 const process = require('process');
 const through = require('through2');
 
@@ -48,6 +50,10 @@ function compile(source, destination, compatibleBrowsers, includePaths) {
     const compileDestination = destination || source;
     const compileCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
+    const nodeModules = 'node_modules';
+    const workingDirectory = process.cwd();
+    const localNodeModulesExists = fs.existsSync(path.resolve(workingDirectory, nodeModules));
+
     return gulp.src(source + '**/*.scss')
         .pipe(cache('scss'))
         .pipe(plumber())
@@ -60,6 +66,28 @@ function compile(source, destination, compatibleBrowsers, includePaths) {
         .pipe(sass({
             linefeed: process.platform === 'win32' ? 'crlf' : 'lf',
             includePaths: Array.isArray(includePaths) ? includePaths : [],
+            importer: [
+                function preferLocalizedNodeModules(url, prev) {
+                    if (!(localNodeModulesExists && url.split('/').includes(nodeModules))) {
+                        return null;
+                    }
+
+                    let localized = path.resolve(workingDirectory, url.replace(/^.*node_modules/, nodeModules));
+                    if (!localized.endsWith('.scss')) localized += ".scss";
+
+                    const lastSlash = localized.lastIndexOf(path.sep);
+                    if (lastSlash > 0) {
+                        const partial = localized.substring(0, lastSlash) +
+                            path.sep +
+                            '_' +
+                            localized.substring(lastSlash + 1);
+
+                        if (fs.existsSync(partial)) localized = partial;
+                    }
+
+                    return fs.existsSync(localized) ? { file: localized } : null;
+                },
+            ],
         }).on('error', sass.logError))
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
