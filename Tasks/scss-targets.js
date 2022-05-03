@@ -44,7 +44,7 @@ function normalizeSourceMap() {
     return through.obj((file, _, callback) => callback(null, normalize(file)));
 }
 
-function compile(source, destination, compatibleBrowsers) {
+function compile(source, destination, compatibleBrowsers, includePaths) {
     const compileDestination = destination || source;
     const compileCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
@@ -57,7 +57,10 @@ function compile(source, destination, compatibleBrowsers) {
             ],
         }))
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ linefeed: process.platform === 'win32' ? 'crlf' : 'lf' }).on('error', sass.logError))
+        .pipe(sass({
+            linefeed: process.platform === 'win32' ? 'crlf' : 'lf',
+            includePaths: Array.isArray(includePaths) ? includePaths : [],
+        }).on('error', sass.logError))
         .pipe(postcss([autoprefixer({ overrideBrowserslist: compileCompatibleBrowsers })]))
         .pipe(sourcemaps.write('.', { includeContent: true }))
         .pipe(normalizeSourceMap())
@@ -76,12 +79,12 @@ function clean(destination) {
     return () => del([destination + '**/*.css', destination + '**/*.css.map']);
 }
 
-function build(source, destination, compatibleBrowsers) {
+function build(source, destination, compatibleBrowsers, includePaths) {
     const buildDestination = destination || source;
     const buildCompatibleBrowsers = compatibleBrowsers || defaultCompatibleBrowsers;
 
     return gulp.series(
-        () => new Promise((resolve) => compile(source, buildDestination, buildCompatibleBrowsers)
+        () => new Promise((resolve) => compile(source, buildDestination, buildCompatibleBrowsers, includePaths)
             .on('end', resolve)),
         () => new Promise((resolve) => minify(buildDestination).on('end', resolve)));
 }
