@@ -167,6 +167,11 @@ function getNugetPath() {
 
     let current = process.env.HOME ?? process.env.USERPROFILE;
 
+    // test and probe
+    console.log('CURRENT:', current);
+    console.log('CWD:', process.cwd());
+    console.log(JSON.stringify(process.env, undefined, 2));
+
     function last(array) { return array[array.length - 1]; }
 
     for (let i = 0; i < steps.length; i++)
