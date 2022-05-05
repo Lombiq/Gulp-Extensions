@@ -153,8 +153,6 @@ function setupRecommended(options) {
         add('assets', 'copy');
     }
 
-    console.log('BUILD TASKS', ...build);
-
     gulp.task('default', gulp.parallel(...build));
     gulp.task('clean', gulp.parallel(...clean));
 
@@ -166,12 +164,6 @@ function getNugetPath() {
     Array.from(arguments).forEach((item) => steps.push(item));
 
     let current = process.env.HOME ?? process.env.USERPROFILE;
-
-    // test and probe
-    console.log('CURRENT:', current);
-    console.log('CWD:', process.cwd());
-    console.log(JSON.stringify(process.env, undefined, 2));
-    console.log(fs.readdirSync(path.resolve(current, '.nuget', 'packages')).join('\n'));
 
     function last(array) { return array[array.length - 1]; }
 
