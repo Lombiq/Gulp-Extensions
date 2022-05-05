@@ -171,7 +171,7 @@ function getNugetPath() {
     console.log('CURRENT:', current);
     console.log('CWD:', process.cwd());
     console.log(JSON.stringify(process.env, undefined, 2));
-    console.log(fs.readdirSync(current).join('\n'));
+    console.log(fs.readdirSync(path.resolve(current, '.nuget')).join('\n'));
 
     function last(array) { return array[array.length - 1]; }
 
