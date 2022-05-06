@@ -73,7 +73,7 @@ function compile(source, destination, compatibleBrowsers, includePaths) {
                     }
 
                     let localized = path.resolve(workingDirectory, url.replace(/^.*node_modules/, nodeModules));
-                    if (!localized.endsWith('.scss')) localized += ".scss";
+                    if (!localized.endsWith('.scss')) localized += '.scss';
 
                     const lastSlash = localized.lastIndexOf(path.sep);
                     if (lastSlash > 0) {
