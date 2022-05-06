@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const process = require('process');
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const babel = require('gulp-babel');
@@ -12,8 +15,9 @@ const defaultScriptsAssetsBasePath = defaultAssetsBasePath + 'Scripts/';
 
 function setupRecommendedScssTasks(
     stylesDistBasePath = defaultDistBasePath + 'css/',
-    stylesAssetsBasePath = defaultStylesAssetsBasePath) {
-    gulp.task('build:styles', scssTargets.build(stylesAssetsBasePath, stylesDistBasePath));
+    stylesAssetsBasePath = defaultStylesAssetsBasePath,
+    includePaths = []) {
+    gulp.task('build:styles', scssTargets.build(stylesAssetsBasePath, stylesDistBasePath, undefined, includePaths));
     gulp.task('clean:styles', scssTargets.clean(stylesDistBasePath));
     gulp.task('watch:styles', () => watch(stylesAssetsBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles')));
     gulp.task('default', gulp.series('build:styles'));
@@ -42,8 +46,9 @@ function setupRecommendedScssAndJsTasks(
     stylesDistBasePath,
     scriptsDistBasePath,
     stylesAssetsBasePath,
-    scriptsAssetsBasePath) {
-    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath);
+    scriptsAssetsBasePath,
+    stylesIncludePaths = []) {
+    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath, stylesIncludePaths);
     setupRecommendedJsTasks(scriptsDistBasePath, scriptsAssetsBasePath);
 
     gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts'));
@@ -69,8 +74,9 @@ function setupRecommendedScssAndJsTasksAndVendorsCopyAssets(
     scriptsDistBasePath,
     assetsDistBasePath,
     stylesAssetsBasePath,
-    scriptsAssetsBasePath) {
-    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath);
+    scriptsAssetsBasePath,
+    stylesIncludePaths = []) {
+    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath, stylesIncludePaths);
     setupRecommendedJsTasks(scriptsDistBasePath, scriptsAssetsBasePath);
     setupVendorsCopyAssets(assets, assetsDistBasePath);
 
@@ -103,8 +109,9 @@ function setupRecommendedScssAndJsTasksAndCopyAssets(
     stylesDistBasePath,
     scriptsDistBasePath,
     stylesAssetsBasePath,
-    scriptsAssetsBasePath) {
-    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath);
+    scriptsAssetsBasePath,
+    stylesIncludePaths = []) {
+    setupRecommendedScssTasks(stylesDistBasePath, stylesAssetsBasePath, stylesIncludePaths);
     setupRecommendedJsTasks(scriptsDistBasePath, scriptsAssetsBasePath);
     setupCopyAssets(assets);
 
@@ -112,6 +119,67 @@ function setupRecommendedScssAndJsTasksAndCopyAssets(
     gulp.task('clean', gulp.parallel('clean:styles', 'clean:scripts', 'clean:assets'));
 
     return this;
+}
+
+function setupRecommended(options) {
+    const config = {
+        assets: [],
+        styles: false,
+        scripts: false,
+        ...options,
+    };
+
+    const build = [];
+    const clean = [];
+    function add(task, buildName = 'build') {
+        build.push(`${buildName}:${task}`);
+        clean.push(`clean:${task}`);
+    }
+
+    if (config.styles) {
+        const styles = config.styles === true ? {} : config.styles;
+        setupRecommendedScssTasks(styles.distBasePath, styles.assetsBasePath, styles.includePaths);
+        add('styles');
+    }
+
+    if (config.scripts) {
+        const scripts = config.scripts === true ? {} : config.scripts;
+        setupRecommendedJsTasks(scripts.distBasePath, scripts.assetsBasePath);
+        add('scripts');
+    }
+
+    if (Array.isArray(config.assets)) {
+        setupCopyAssets(config.assets);
+        add('assets', 'copy');
+    }
+
+    gulp.task('default', gulp.parallel(...build));
+    gulp.task('clean', gulp.parallel(...clean));
+
+    return this;
+}
+
+function getNugetPath() {
+    const steps = ['.nuget', 'packages'];
+    Array.from(arguments).forEach((item) => steps.push(item));
+
+    let current = process.env.HOME ?? process.env.USERPROFILE;
+
+    function last(array) { return array[array.length - 1]; }
+
+    for (let i = 0; i < steps.length; i++)
+    {
+        let step = steps[i] === null || steps[i] === undefined ? '*' : steps[i].toLowerCase();
+        if (step === '') continue;
+
+        const results = fs
+            .readdirSync(current)
+            .filter((name) => step === '*' || name.toLowerCase() === step);
+
+        current = path.resolve(current, last(results));
+    }
+
+    return current;
 }
 
 module.exports = {
@@ -122,4 +190,6 @@ module.exports = {
     setupRecommendedScssAndJsTasksAndVendorsCopyAssets,
     setupCopyAssets,
     setupRecommendedScssAndJsTasksAndCopyAssets,
+    setupRecommended,
+    getNugetPath,
 };
