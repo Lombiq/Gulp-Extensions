@@ -41,7 +41,7 @@ module.exports = {
             { 'allowForLoopAfterthoughts': true }
         ],
 
-        'linebreak-style': ['warn', 'windows'],
+        'linebreak-style': 'off',
 
         'no-param-reassign': [
             'warn',
