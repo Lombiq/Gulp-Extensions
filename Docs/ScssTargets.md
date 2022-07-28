@@ -1,15 +1,13 @@
 # SCSS targets Gulp task
 
-
-
 This helper lints (with [Stylelint](https://stylelint.io/)), compiles and minifies the given scss files and copies the output to the given folder.
 
 Looking for something similar for .NET? Check out our [.NET Analyzers project](https://github.com/Lombiq/.NET-Analyzers).
 
 You can use it as follows:
 
-1. Copy *example.stylelintrc* from the *ESLint* folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to *.stylelintrc*, and specify *lombiq-base.stylelintrc*'s location inside.
-2. Import the *Tasks/scss-targets.js* file in your Gulpfile.
+1. Copy _example.stylelintrc_ from the _ESLint_ folder of this project to the root folder of your solution (i.e. where you have the sln file), rename it to _.stylelintrc_, and specify _lombiq-base.stylelintrc_'s location inside.
+2. Import the _Tasks/scss-targets.js_ file in your Gulpfile.
 3. Create a Gulp task that uses this helper as a pipeline, see below.
 
 ```js
@@ -20,7 +18,7 @@ gulp.task('build:styles', scssTargets.build('./Assets/Styles/', './wwwroot/css/'
 
 You'll see any errors or linter rule violations show up in the Gulp console.
 
-Unfortunately, there's no Visual Studio editor support to see linter violations in real-time. You can, however, write SCSS in Visual Studio Code and use the official [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint): Just install it and configure it to validate SCSS files too under its "Stylelint: Validate" option or use the below snippet in VS Code's *settings.json*.
+Unfortunately, there's no Visual Studio editor support to see linter violations in real-time. You can, however, write SCSS in Visual Studio Code and use the official [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint): Just install it and configure it to validate SCSS files too under its "Stylelint: Validate" option or use the below snippet in VS Code's _settings.json_.
 
 ```json
 "stylelint.validate": [
@@ -31,12 +29,12 @@ Unfortunately, there's no Visual Studio editor support to see linter violations 
 ],
 ```
 
-
 ## Stylelint rules
 
 The rules are found in 2 files:
-- *lombiq-base.stylelintrc.json*: These rules are Lombiq overrides for [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss).
-- *.stylelintrc*: In this file you can define your own overriding rules.
+
+- _lombiq-base.stylelintrc.json_: These rules are Lombiq overrides for [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss).
+- _.stylelintrc_: In this file you can define your own overriding rules.
 
 Details on rules can be found in the [Stylelint documentation](https://stylelint.io/user-guide/rules/list). If you want to find out what the currently applied configuration is, coming from all the various extended configuration files, then run `npx stylelint --print-config . > rules.json` at the given location.
 
