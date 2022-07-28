@@ -10,7 +10,7 @@ You can use ESLint as follows:
 2. Import the _Tasks/js-targets.js_ file in your Gulpfile then create a Gulp task that uses this helper as a pipeline.
 3. If you use [Visual Studio's built-in ESLint](https://docs.microsoft.com/en-us/visualstudio/ide/reference/options-text-editor-javascript-linting?view=vs-2019), it will recognize the rules and show any violations after the copying of _.eslintrc_ as mentioned above. Note that you have to enable the ESLint integration for it to work in the editor. The _vs-eslint-package.json_ file is automatically copied into your solution directory as _package.json_ to make this work; gitignore it in your repository along the lines of:
 
-    ```
+    ```gitignore
     /src/package.json
     ```
 
@@ -61,7 +61,7 @@ For historical reasons, Windows uses the `\r\n` character combination (also know
 
 To ensure that the files have consistent line endings in the remote repository, you can add the following _.gitattributes_ file:
 
-```
+```gitattributes
 * text=auto
 ```
 
