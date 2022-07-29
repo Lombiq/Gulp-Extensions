@@ -1,22 +1,18 @@
 # Lombiq Gulp Extensions
 
-
-
 ## About
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
 
-When adding this project to the solution it will initialize a *node_modules* folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other *package.json* files. This way it makes it possible to keep the *package.json* files light (e.g. adding the `gulp` Node module won't be necessary) by using a single, common *node_modules* folder (see [the Node docs](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)).
+When adding this project to the solution it will initialize a _node_modules_ folder two levels up in the folder hierarchy assuming that it will be a common root folder for all the other _package.json_ files. This way it makes it possible to keep the _package.json_ files light (e.g. adding the `gulp` Node module won't be necessary) by using a single, common _node_modules_ folder (see [the Node docs](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)).
 
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
 Do you want to quickly try out this project and see it in action? Check it out in our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) full Orchard Core solution and also see our other useful Orchard Core-related open-source projects!
 
-
 ## Installation and usage
 
 It's recommended that you put this project into a folder named _Lombiq.Gulp.Extensions_ and under the _src/Utilities_ folder.
-
 
 ### Integrating with MSBuild
 
@@ -31,7 +27,6 @@ If you want to integrate ESLint and Stylelint into MSBuild builds then you need 
 Then, warnings will be sent to the error list if the linters find rule violations.
 
 **Note** that when building a solution that utilizes this project from the command line (i.e. with the `dotnet build` or `msbuild` commands) you have to build this project alone first. Otherwise, you'll get "Local gulp not found" errors. Building from Visual Studio doesn't need any special care.
-
 
 ## Gulp tasks
 
@@ -98,16 +93,14 @@ gulp.task('watch', () => {
 
 ```
 
-
 ## Using PNPM for package restore
 
 See our notes on PNPM [here](https://github.com/Lombiq/NPM-Targets/#using-pnpm-for-package-restore).
 
-
 ## Contributing and support
 
-If ESLint's or any ESLint plugin's version is updated in Gulp Extension's *package.json*, please update *vs-eslint-package.json* too.
+If ESLint's or any ESLint plugin's version is updated in Gulp Extension's _package.json_, please update _vs-eslint-package.json_ too.
 
-Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
+Bug reports, feature requests, comments, questions, code contributions and love letters are warmly welcome. You can send them to us via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
