@@ -1,5 +1,9 @@
 # Lombiq Gulp Extensions
 
+## Deprecation notice
+
+This project is being deprecated, and support for it will be ceased. Please consider [migrating](Docs/MigrationToNodeJsExtensions.md) to our [Node.js Extensions](https://github.com/Lombiq/NodeJs-Extensions) project, which provides pre-configured frontend asset pipelines out of the box, without using Gulp.
+
 ## About
 
 Various JavaScript functions and Gulp tasks that can be handy when developing Gulp pipelines.
