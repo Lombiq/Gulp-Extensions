@@ -2,8 +2,7 @@
 
   <Target
     Name="EslintWarningTarget"
-    AfterTargets="NpmDotnetPrebuild"
-    BeforeTargets="BeforeBuild">
+    AfterTargets="NpmDotnetPrebuild">
     <Warning
       Code="ESL01"
       Text="ESLint error in Gulp process, check the build output for more information."
@@ -16,8 +15,7 @@
 
   <Target
     Name="StylelintWarningTarget"
-    AfterTargets="NpmDotnetPrebuild"
-    BeforeTargets="BeforeBuild">
+    AfterTargets="NpmDotnetPrebuild">
     <Warning
       Code="SL01"
       Text="Stylelint error in Gulp process, check the build output for more information."
