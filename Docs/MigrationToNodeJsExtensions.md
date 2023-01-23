@@ -50,7 +50,7 @@ For an example of such a migration, take a look at [the pull request](https://gi
 - [_Gulp/tasks/copy-assets.js_](https://github.com/Lombiq/Orchard-Data-Tables/pull/119/files#diff-0499a158a5344045f1692884b486e90f3165f532c0987fad94c7421bee861477L4)
 - [_package.json_](https://github.com/Lombiq/Orchard-Data-Tables/pull/119/files#diff-07262515c308107536d6233046a521a4263e241ac53e988609f7fd2187e75cbdR14)
 
-## 3. Delete the _wwwroot_ folder
+## 3. Stop tracking the _wwwroot_ folder
 
 This includes removing any _.placeholder_ file that might exist there.
 
