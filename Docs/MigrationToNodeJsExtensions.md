@@ -1,6 +1,8 @@
 # Migrating to Lombiq Node.js Extensions
 
-## 1. Update your project file
+Please execute the following steps in the given order.
+
+## Update your project file
     
 1. Remove all references to `Lombiq.Gulp.Extensions` and `Lombiq.Npm.Targets`.
 1. Add project and/or package references to `Lombiq.NodeJs.Extensions`.
@@ -38,11 +40,11 @@
 </Project>
 ```
 
-## 2. Configure Node.js Extensions in _package.json_
+## Configure Node.js Extensions in _package.json_
 
 Refer to the [documentation](https://github.com/Lombiq/NodeJs-Extensions#configuration) on how to configure each part.
 
-Asset copying needs to be manually configurated - there are no magic assets folders in Node.js Extensions anymore.
+Asset copying needs to be manually configurated - there are no magic assets directories in Node.js Extensions anymore.
 
 For an example of such a migration, take a look at [the pull request](https://github.com/Lombiq/Orchard-Data-Tables/pull/119/files) that contained the migration of our [Lombiq Data Tables for Orchard Core](https://github.com/Lombiq/Orchard-Data-Tables) project to Node.js Extensions, especially the following files:
 
@@ -50,19 +52,19 @@ For an example of such a migration, take a look at [the pull request](https://gi
 - [_Gulp/tasks/copy-assets.js_](https://github.com/Lombiq/Orchard-Data-Tables/pull/119/files#diff-0499a158a5344045f1692884b486e90f3165f532c0987fad94c7421bee861477L4)
 - [_package.json_](https://github.com/Lombiq/Orchard-Data-Tables/pull/119/files#diff-07262515c308107536d6233046a521a4263e241ac53e988609f7fd2187e75cbdR14)
 
-## 3. Stop tracking the _wwwroot_ folder
+## Stop tracking the _wwwroot_ folder
 
 This includes removing any _.placeholder_ file that might exist there.
 
 Also ensure that _wwwroot_ is added to the project's _.gitignore_ file. In the standard scenario, no files under _wwwroot_ should be committed to the repository.
 
-## 4. Delete _Gulpfile.js_ and any Gulp left-overs
+## Delete _Gulpfile.js_ and any Gulp left-overs
 
-This could be a folder of task scripts, for example.
+This could be a directory of task scripts, for example.
 
-## 5. Delete all _node_modules_ folders
+## Delete all _node_modules_ directories
 
-Any project using Node.js Extensions will be using PNPM for package management. In order for PNPM to properly handle packages, it is necessary to clear or delete any affected project's _node_modules_ folder.
+Any project using Node.js Extensions will be using PNPM for package management. In order for PNPM to properly handle packages, it is necessary to clear or delete any affected project's _node_modules_ directory.
 
 One way to achieve the above would be to execute the followint PowerShell script:
 
