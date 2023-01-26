@@ -38,7 +38,7 @@ Please execute the following steps in the given order.
 +  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.targets" />
 +
 </Project>
-```
+```<!-- #spell-check-ignore-line -->
 
 ## Configure Node.js Extensions in _package.json_
 
@@ -66,7 +66,7 @@ This could be a directory of task scripts, for example.
 
 Any project using Node.js Extensions will be using PNPM for package management. In order for PNPM to properly handle packages, it is necessary to clear or delete any affected project's _node_modules_ directory.
 
-One way to achieve the above would be to execute the followint PowerShell script:
+One way to achieve the above would be to execute the following PowerShell script:
 
 ```pwsh
 Get-ChildItem -Filter node_modules -Recurse | Remove-Item -Force -Recurse
