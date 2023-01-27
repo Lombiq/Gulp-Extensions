@@ -38,7 +38,7 @@ Please execute the following steps in the given order.
 +  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.targets" />
 +
 </Project>
-```<!-- #spell-check-ignore-line -->
+```
 
 ## Configure Node.js Extensions in _package.json_
 
