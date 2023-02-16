@@ -32,7 +32,7 @@ Please execute the following steps in the given order.
 
 <ItemGroup Condition="'$(NuGetBuild)' == 'true'">
     <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="4.7.0" />
-+    <PackageReference Include="Lombiq.NodeJs.Extensions" Version="1.0.0-alpha.osoe-84.4" />
++    <PackageReference Include="Lombiq.NodeJs.Extensions" Version="1.0.0" />
 </ItemGroup>
 
 +  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.targets" />
