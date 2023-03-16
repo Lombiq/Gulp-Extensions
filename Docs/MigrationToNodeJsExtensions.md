@@ -32,7 +32,8 @@ Please execute the following steps in the given order.
 
 <ItemGroup Condition="'$(NuGetBuild)' == 'true'">
     <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="4.7.0" />
-+    <PackageReference Include="Lombiq.NodeJs.Extensions" Version="1.0.0" />
++    <!-- Replace TODO with the latest version number. -->
++    <PackageReference Include="Lombiq.NodeJs.Extensions" Version="TODO" />
 </ItemGroup>
 
 +  <Import Condition="'$(NuGetBuild)' != 'true'" Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.targets" />
@@ -71,3 +72,7 @@ One way to achieve the above would be to execute the following PowerShell script
 ```pwsh
 Get-ChildItem -Filter node_modules -Recurse | Remove-Item -Force -Recurse
 ```
+
+## Delete _package-lock.json_, add _pnpm-lock.yaml_
+
+With the switch from NPM to PNPM, any _package-lock.json_ can be removed from your source repository. Instead, add _pnpm-lock.yaml_, PNPM's own lockfile, to it.
