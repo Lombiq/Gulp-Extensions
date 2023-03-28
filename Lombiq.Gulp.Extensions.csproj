@@ -31,6 +31,16 @@
           BeforeTargets="ResolveReferences"
           Inputs="package.json"
           Outputs="$(InitCommonNodeModulesStampFile)">
+    <!-- Ignore sporadic errors when this is run by multiple threads at the same time. -->
+    <Exec Command="corepack enable"
+          IgnoreExitCode="true"
+          IgnoreStandardErrorWarningFormat="true"
+          StandardOutputImportance="$(NxVerbosity)" />
+    <!-- Enable the latest version of pnpm@7. -->
+    <Exec Command="corepack prepare pnpm@latest-7 --activate"
+          IgnoreExitCode="true"
+          IgnoreStandardErrorWarningFormat="true"
+          StandardOutputImportance="$(NxVerbosity)" />
     <!-- Check if pnpm is installed. -->
     <Exec Command="pnpm -v" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="PnpmInstalledExitCode" />

@@ -1,20 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <!-- Try to enable pnpm via corepack, which is part of Node.js v16.9 and above. -->
-  <Target Name="EnablePnpm"
-          BeforeTargets="NpmDotnetPrebuild">
-    <!-- Ignore sporadic errors when this is run by multiple threads at the same time. -->
-    <Exec Command="corepack enable"
-          IgnoreExitCode="true"
-          IgnoreStandardErrorWarningFormat="true"
-          StandardOutputImportance="$(NxVerbosity)" />
-    <!-- Enable the latest version of pnpm@7. -->
-    <Exec Command="corepack prepare pnpm@latest-7 --activate"
-          IgnoreExitCode="true"
-          IgnoreStandardErrorWarningFormat="true"
-          StandardOutputImportance="$(NxVerbosity)" />
-  </Target>
-
   <Target
     Name="EslintWarningTarget"
     AfterTargets="NpmDotnetPrebuild">
