@@ -2,7 +2,7 @@
 
   <!-- Try to enable pnpm via corepack, which is part of Node.js v16.9 and above. -->
   <Target Name="EnablePnpm"
-          BeforeTargets="NpmInstall">
+          BeforeTargets="NpmDotnetPrebuild">
     <!-- Ignore sporadic errors when this is run by multiple threads at the same time. -->
     <Exec Command="corepack enable"
           IgnoreExitCode="true"
