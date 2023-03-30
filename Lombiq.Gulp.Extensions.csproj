@@ -18,11 +18,16 @@
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
   </PropertyGroup>
   
-  <Target Name="ActivatePnpmVersion7" BeforeTargets="InitCommonNodeModules">
-    <!-- Corepack is a Node.js tool available since v14.9.0 and v16.9.0. -->
-    <Exec Command="corepack enable" />
-    <!-- Enable the latest version of pnpm@7. -->
-    <Exec Command="corepack prepare pnpm@latest-7 --activate" />
+  <!-- This target ensures that pnpm version 7 is used instead of any newer version. You can opt out of this behavior by
+       setting the property "PreventPnpm7" to "true", e.g. in a Directory.Build.props file above this project. -->
+  <Target Name="ActivatePnpmVersion7" BeforeTargets="InitCommonNodeModules" Condition="'$(PreventPnpm7)' != 'true'">
+    <!-- Corepack is a Node.js tool available since v14.9.0 and v16.9.0. In case this command fails, we assume that it
+         fails due to running on an older Node.js version, in which case we don't care about the pnpm version. -->
+    <Exec Command="corepack enable" IgnoreExitCode="true" IgnoreStandardErrorWarningFormat="true">
+      <Output TaskParameter="ExitCode" PropertyName="CorepackExitCode" />
+ 	</Exec>
+    <!-- Enable the latest version of pnpm@7 in case "corepack enable" executed successfully. -->
+    <Exec Command="corepack prepare pnpm@latest-7 --activate" Condition="'$(CorepackExitCode)' = '0'" />
   </Target>
 
   <!--
