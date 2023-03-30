@@ -18,17 +18,11 @@
     <ESLintConfigFileTargetPath>../../.eslintrc</ESLintConfigFileTargetPath>
   </PropertyGroup>
   
-  <Target Name="SelectPnpmVersion" BeforeTargets="InitCommonNodeModules">
-    <!-- Ignore sporadic errors when this is run by multiple threads at the same time. -->
-    <Exec Command="corepack enable"
-          IgnoreExitCode="true"
-          IgnoreStandardErrorWarningFormat="true"
-          StandardOutputImportance="$(NxVerbosity)" />
-    <!-- Enable the latest version of pnpm@6. -->
-    <Exec Command="corepack prepare pnpm@latest-7 --activate"
-          IgnoreExitCode="true"
-          IgnoreStandardErrorWarningFormat="true"
-          StandardOutputImportance="$(NxVerbosity)" />
+  <Target Name="ActivatePnpmVersion7" BeforeTargets="InitCommonNodeModules">
+    <!-- Corepack is a Node.js tool available since v14.9.0 and v16.9.0. -->
+    <Exec Command="corepack enable" />
+    <!-- Enable the latest version of pnpm@7. -->
+    <Exec Command="corepack prepare pnpm@latest-7 --activate" />
   </Target>
 
   <!--
