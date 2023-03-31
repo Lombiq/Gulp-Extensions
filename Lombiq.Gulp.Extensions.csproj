@@ -25,7 +25,7 @@
          fails due to running on an older Node.js version, in which case we don't care about the pnpm version. -->
     <Exec Command="corepack enable" IgnoreExitCode="true" IgnoreStandardErrorWarningFormat="true">
       <Output TaskParameter="ExitCode" PropertyName="CorepackExitCode" />
- 	</Exec>
+    </Exec>
     <!-- Enable the latest version of pnpm@7 in case "corepack enable" executed successfully. -->
     <Exec Command="corepack prepare pnpm@7.30.5 --activate" Condition="'$(CorepackExitCode)' == '0'" />
   </Target>
