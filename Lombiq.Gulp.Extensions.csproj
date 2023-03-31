@@ -27,7 +27,7 @@
       <Output TaskParameter="ExitCode" PropertyName="CorepackExitCode" />
  	</Exec>
     <!-- Enable the latest version of pnpm@7 in case "corepack enable" executed successfully. -->
-    <Exec Command="corepack prepare pnpm@7.30.5 --activate" Condition="'$(CorepackExitCode)' = '0'" />
+    <Exec Command="corepack prepare pnpm@7.30.5 --activate" Condition="'$(CorepackExitCode)' == '0'" />
   </Target>
 
   <!--
