@@ -12,7 +12,7 @@ When adding this project to the solution it will initialize a _node_modules_ fol
 
 Also see our [NPM MSBuild Targets](https://github.com/Lombiq/NPM-Targets) library that can make NPM package management a lot easier.
 
-We at [Lombiq](https://lombiq.com/) also used this utility for the new client portal for [WTW](https://www.wtwco.com/) ([see case study](https://lombiq.com/blog/lombiqs-journey-with-wtw-client-portal)).
+We at [Lombiq](https://lombiq.com/) also used this utility for the new client portal for [WTW](https://www.wtwco.com/) ([see case study](https://lombiq.com/blog/lombiq-s-journey-with-wtw-s-client-portal)).
 
 Do you want to quickly try out this project and see it in action? Check it out in our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) full Orchard Core solution and also see our other useful Orchard Core-related open-source projects!
 
